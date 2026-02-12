@@ -3,363 +3,502 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Map Doesn't Exist Yet</title>
+    <title>Private Briefing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,100..1000;1,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
-
+        /* ═══════════════════════════════════════
+           RESET & VARIABLES
+        ═══════════════════════════════════════ */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --accent: #e2c044;
-            --accent-dim: rgba(226, 192, 68, 0.2);
-            --accent-glow: rgba(226, 192, 68, 0.3);
-            --green: #52b788;
-            --red: #c9184a;
-            --amber: #f4d35e;
-            --bg: #0a0a0a;
-            --bg-card: rgba(26, 26, 46, 0.5);
-            --text: #f0ead2;
-            --text-mid: #a8a29e;
-            --text-muted: #6b705c;
+            --bg: #fafaf8;
+            --bg-alt: #f2f1ed;
+            --text: #1a1a1a;
+            --text-mid: #4a4a4a;
+            --text-muted: #8a8a8a;
+            --green: #2d6a4f;
+            --green-light: rgba(45, 106, 79, 0.08);
+            --border: #e2e0db;
+            --border-light: #eeedea;
         }
 
         html { scroll-behavior: smooth; font-size: 16px; }
 
         body {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'DM Sans', system-ui, sans-serif;
             background: var(--bg);
             color: var(--text);
             overflow-x: hidden;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* ═══ NETWORK CANVAS ═══ */
-        #network-canvas {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0.12;
-        }
-        #network-canvas path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
-
-        /* ═══ SECTIONS ═══ */
+        /* ═══════════════════════════════════════
+           LAYOUT
+        ═══════════════════════════════════════ */
         .section {
-            position: relative;
-            z-index: 1;
+            padding: 120px 60px;
             display: flex;
-            align-items: center;
             justify-content: center;
-            padding: 100px 60px;
         }
 
         .section-inner {
-            max-width: 1100px;
+            max-width: 900px;
             width: 100%;
             opacity: 0;
-            transform: translateY(60px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
 
         .section-inner.visible { opacity: 1; transform: translateY(0); }
 
-        /* ═══ HERO ═══ */
+        /* ═══════════════════════════════════════
+           HERO
+        ═══════════════════════════════════════ */
         #hero {
-            min-height: 90vh;
-            background: radial-gradient(ellipse at 50% 50%, #1a1a2e 0%, #0a0a0a 70%);
-            text-align: center;
-            flex-direction: column;
+            min-height: 88vh;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        #hero .section-inner { opacity: 1; transform: none; }
+        #hero .section-inner {
+            opacity: 1;
+            transform: none;
+            position: relative;
+            z-index: 1;
+        }
 
         .hero-label {
             font-size: 0.7rem;
-            letter-spacing: 0.35em;
+            font-weight: 500;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
             color: var(--text-muted);
+            margin-bottom: 40px;
+            padding: 6px 18px;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            display: inline-block;
+        }
+
+        .hero-title {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 400;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            color: var(--text);
             margin-bottom: 32px;
         }
 
-        .hero-tagline {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2.8rem, 7vw, 6.5rem);
-            font-weight: 400;
-            line-height: 1.05;
-            letter-spacing: -0.02em;
-            color: var(--text);
-            margin-bottom: 28px;
+        .hero-title em {
+            font-style: italic;
+            color: var(--green);
         }
-
-        .hero-tagline em { font-style: italic; color: var(--accent); }
 
         .hero-sub {
             font-size: 1.2rem;
             color: var(--text-mid);
-            font-weight: 300;
-            max-width: 560px;
-            margin: 0 auto 48px;
-            line-height: 1.7;
+            max-width: 580px;
+            line-height: 1.75;
+            font-weight: 400;
         }
 
-        .hero-node {
-            width: 10px; height: 10px;
-            background: var(--accent);
-            border-radius: 50%;
-            margin: 0 auto;
-            box-shadow: 0 0 40px var(--accent), 0 0 80px var(--accent-glow);
-            animation: pulse 2.5s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 40px var(--accent), 0 0 80px var(--accent-glow); }
-            50% { transform: scale(1.4); box-shadow: 0 0 60px var(--accent), 0 0 120px rgba(226, 192, 68, 0.5); }
-        }
-
-        .scroll-hint {
+        /* Hero network SVG */
+        .hero-network {
             position: absolute;
-            bottom: 40px; left: 50%;
-            transform: translateX(-50%);
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 420px;
+            height: 520px;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .hero-network circle { fill: var(--text); }
+        .hero-network path {
+            fill: none;
+            stroke: var(--text);
+            stroke-linecap: round;
+        }
+
+        .scroll-cue {
+            position: absolute;
+            bottom: 48px;
+            left: 60px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
             color: var(--text-muted);
             font-size: 0.7rem;
-            letter-spacing: 0.25em;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            animation: drift 2s ease-in-out infinite;
         }
 
-        @keyframes drift {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(8px); }
+        .scroll-cue::before {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 1px;
+            background: var(--border);
         }
 
-        /* ═══ TYPOGRAPHY ═══ */
+        /* ═══════════════════════════════════════
+           TYPOGRAPHY
+        ═══════════════════════════════════════ */
         .section-label {
             font-size: 0.7rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 16px;
             font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 20px;
         }
 
         .section-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2rem, 5vw, 4rem);
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
             font-weight: 400;
-            line-height: 1.1;
-            margin-bottom: 32px;
+            line-height: 1.15;
+            margin-bottom: 28px;
             color: var(--text);
         }
 
         .section-body {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             line-height: 1.8;
             color: var(--text-mid);
-            max-width: 800px;
+            max-width: 680px;
         }
 
-        .section-body strong { color: var(--text); font-weight: 500; }
+        .section-body strong { color: var(--text); font-weight: 600; }
 
-        /* ═══ MANIFESTO LINES ═══ */
-        .manifesto { display: flex; flex-direction: column; gap: 12px; margin: 40px 0; }
+        /* ═══════════════════════════════════════
+           SKETCH LIST (left-bordered items)
+        ═══════════════════════════════════════ */
+        .sketch-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 40px 0;
+        }
 
-        .manifesto-line {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(1.3rem, 3vw, 2rem);
-            line-height: 1.3;
+        .sketch-item {
+            padding: 14px 24px;
+            border-left: 2px solid var(--border);
+            font-size: 1rem;
+            color: var(--text-mid);
+            line-height: 1.65;
+            transition: border-color 0.3s ease;
+        }
+
+        .sketch-item:hover { border-left-color: var(--green); }
+
+        .sketch-item .accent {
+            font-family: 'Fraunces', serif;
+            font-size: 1.1rem;
             color: var(--text);
-            padding-left: 24px;
-            border-left: 2px solid var(--accent-dim);
-            transition: border-color 0.4s ease;
         }
-        .manifesto-line:hover { border-left-color: var(--accent); }
-        .manifesto-line span { color: var(--accent); }
 
-        /* ═══ PULL QUOTES ═══ */
+        /* ═══════════════════════════════════════
+           PULL QUOTES
+        ═══════════════════════════════════════ */
+        .quote-section { padding: 80px 60px; }
+
         .pull-quote {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+            font-family: 'Fraunces', serif;
+            font-size: clamp(1.3rem, 2.8vw, 2rem);
             font-style: italic;
-            color: var(--accent);
-            text-align: center;
-            padding: 40px;
-            line-height: 1.4;
+            color: var(--green);
+            line-height: 1.45;
+            max-width: 660px;
         }
 
-        /* ═══ CARDS ═══ */
+        .pull-quote::before {
+            content: '';
+            display: block;
+            width: 36px;
+            height: 2px;
+            background: var(--green);
+            margin-bottom: 24px;
+        }
+
+        /* ═══════════════════════════════════════
+           CARDS
+        ═══════════════════════════════════════ */
         .card-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
+            gap: 16px;
             margin: 48px 0;
         }
 
         .card {
-            background: var(--bg-card);
-            border: 1px solid rgba(226, 192, 68, 0.08);
-            border-radius: 12px;
-            padding: 32px;
-            transition: border-color 0.3s ease, transform 0.3s ease;
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 28px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        .card:hover { border-color: rgba(226, 192, 68, 0.25); transform: translateY(-2px); }
 
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .card:hover {
+            border-color: var(--green);
+            box-shadow: 0 2px 16px rgba(45, 106, 79, 0.06);
+        }
+
+        .card-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--green);
             margin-bottom: 16px;
         }
 
-        .card-icon { font-size: 1.2rem; line-height: 1; flex-shrink: 0; }
-
         .card-heading {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.5rem;
+            font-family: 'Fraunces', serif;
+            font-size: 1.2rem;
             color: var(--text);
+            margin-bottom: 10px;
         }
 
-        .card-text { font-size: 0.95rem; color: var(--text-mid); line-height: 1.6; }
+        .card-text {
+            font-size: 0.92rem;
+            color: var(--text-mid);
+            line-height: 1.65;
+        }
 
-        /* ═══ STATS ROW ═══ */
-        .stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 48px;
+        /* ═══════════════════════════════════════
+           STATS PANEL
+        ═══════════════════════════════════════ */
+        .stats-panel {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
             margin: 48px 0;
-            justify-content: center;
+            padding: 40px 32px;
+            background: var(--bg-alt);
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
         }
 
         .stat { text-align: center; }
 
         .stat-number {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            color: var(--accent);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--text);
             line-height: 1;
             margin-bottom: 8px;
+            letter-spacing: -0.02em;
         }
 
         .stat-label {
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--text-muted);
         }
 
-        /* ═══ DOMAIN TAGS ═══ */
-        .domains { display: flex; flex-wrap: wrap; gap: 12px; margin: 40px 0; }
-
-        .domain-tag {
-            padding: 12px 24px;
-            border: 1px solid var(--accent-dim);
-            border-radius: 100px;
-            font-size: 0.85rem;
-            letter-spacing: 0.08em;
-            color: var(--text-mid);
-            transition: all 0.3s ease;
+        /* ═══════════════════════════════════════
+           CHECK LIST (proof features)
+        ═══════════════════════════════════════ */
+        .check-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin: 40px 0;
         }
-        .domain-tag:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* ═══ TWO-COL SPLIT ═══ */
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            font-size: 1rem;
+            color: var(--text-mid);
+            line-height: 1.6;
+        }
+
+        .check-mark {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+        }
+
+        .check-mark path {
+            fill: none;
+            stroke: var(--green);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .check-item strong { color: var(--text); font-weight: 500; }
+
+        /* ═══════════════════════════════════════
+           SPLIT COLUMNS
+        ═══════════════════════════════════════ */
         .split {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 64px;
+            gap: 56px;
             margin: 48px 0;
             align-items: start;
         }
 
+        .split-col {
+            padding-top: 24px;
+            border-top: 2px solid var(--border);
+        }
+
         .split-heading {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.8rem;
+            font-family: 'Fraunces', serif;
+            font-size: 1.4rem;
             color: var(--text);
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .split-text {
             font-size: 1rem;
             color: var(--text-mid);
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
-        .split-text strong { color: var(--text); font-weight: 500; }
+        .split-text strong { color: var(--text); font-weight: 600; }
 
-        /* ═══ CTA ═══ */
+        /* ═══════════════════════════════════════
+           DOMAIN TAGS
+        ═══════════════════════════════════════ */
+        .domains {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 40px 0;
+        }
+
+        .domain-tag {
+            padding: 10px 20px;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--text-mid);
+            background: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .domain-tag:hover { border-color: var(--green); color: var(--green); }
+
+        /* ═══════════════════════════════════════
+           CTA
+        ═══════════════════════════════════════ */
         #cta {
-            background: radial-gradient(ellipse at 50% 80%, #1a1a2e 0%, #0a0a0a 70%);
+            background: var(--bg-alt);
             text-align: center;
+            border-top: 1px solid var(--border-light);
+        }
+
+        #cta .section-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .cta-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2rem, 4.5vw, 3.5rem);
             color: var(--text);
             margin-bottom: 24px;
-            line-height: 1.05;
+            line-height: 1.12;
         }
 
         .cta-body {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--text-mid);
-            max-width: 640px;
-            margin: 0 auto 24px;
-            line-height: 1.7;
+            max-width: 560px;
+            line-height: 1.75;
+            margin-bottom: 28px;
         }
 
-        .cta-sub {
+        .cta-direct {
             font-size: 0.95rem;
             color: var(--text-muted);
             font-style: italic;
-            max-width: 500px;
-            margin: 0 auto;
+            max-width: 440px;
             line-height: 1.6;
         }
 
-        /* ═══ FOOTER ═══ */
+        /* ═══════════════════════════════════════
+           BADGER MARK
+        ═══════════════════════════════════════ */
+        .badger-mark {
+            display: inline-block;
+            margin-top: 48px;
+            opacity: 0.12;
+            transition: opacity 0.6s ease;
+            cursor: default;
+        }
+
+        .badger-mark:hover { opacity: 0.4; }
+
+        .badger-mark svg {
+            width: 72px;
+            height: auto;
+        }
+
+        .badger-mark path, .badger-mark line, .badger-mark circle {
+            fill: none;
+            stroke: var(--text);
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .badger-mark .stripe { stroke: var(--green); }
+        .badger-mark .eye { fill: var(--text); stroke: none; }
+
+        /* ═══════════════════════════════════════
+           FOOTER
+        ═══════════════════════════════════════ */
         footer {
             text-align: center;
-            padding: 60px 40px;
+            padding: 48px 40px;
             color: var(--text-muted);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             letter-spacing: 0.1em;
         }
 
-        footer .brand {
-            font-family: 'Instrument Serif', serif;
-            font-style: italic;
-            font-size: 1.1rem;
-            color: var(--text-mid);
-            margin-bottom: 16px;
+        /* ═══════════════════════════════════════
+           SVG DRAW-ON
+        ═══════════════════════════════════════ */
+        .draw-path {
+            transition: stroke-dashoffset 1.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* ═══ RESPONSIVE ═══ */
+        /* ═══════════════════════════════════════
+           RESPONSIVE
+        ═══════════════════════════════════════ */
         @media (max-width: 768px) {
-            .section { padding: 60px 24px; }
-            #hero { min-height: 100vh; }
+            .section { padding: 80px 24px; }
+            .quote-section { padding: 60px 24px; }
+            #hero { min-height: 100vh; padding-bottom: 80px; }
             .card-grid { grid-template-columns: 1fr; }
-            .split { grid-template-columns: 1fr; gap: 40px; }
-            .stats { gap: 32px; }
+            .split { grid-template-columns: 1fr; gap: 32px; }
+            .stats-panel { grid-template-columns: 1fr 1fr; gap: 32px 16px; }
+            .hero-network { display: none; }
+            .scroll-cue { left: 24px; }
         }
 
-        @media (min-width: 1400px) {
-            .section-inner { max-width: 1200px; }
-            .section-body { max-width: 880px; }
+        @media (min-width: 1200px) {
+            .section-inner { max-width: 960px; }
         }
     </style>
 </head>
 <body>
-
-    <!-- NETWORK BACKGROUND -->
-    <svg id="network-canvas" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
-        <defs>
-            <filter id="glow">
-                <feGaussianBlur stdDeviation="3" result="blur"/>
-                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-        </defs>
-        <g id="network-paths" filter="url(#glow)"></g>
-    </svg>
 
     <!-- ════════════════════════════════════════
          HERO
@@ -367,11 +506,45 @@
     <section id="hero" class="section">
         <div class="section-inner">
             <div class="hero-label">Private Briefing</div>
-            <h1 class="hero-tagline">The map<br>doesn't <em>exist</em> yet.</h1>
-            <div class="hero-sub">Regulated ingredients cross five countries, three treaty systems, and a dozen jurisdictions before they reach a manufacturer. Nobody has mapped it. We're building it.</div>
-            <div class="hero-node"></div>
+            <h1 class="hero-title">We built<br>the <em>map.</em></h1>
+            <p class="hero-sub">Regulated ingredients cross five countries, three treaty systems, and a dozen jurisdictions before they reach a manufacturer. The infrastructure connecting compliant supply to manufacturing doesn't exist as a product. We built it — and now it needs a leader.</p>
         </div>
-        <div class="scroll-hint">scroll</div>
+
+        <!-- Network illustration -->
+        <svg class="hero-network" viewBox="0 0 400 520" aria-hidden="true">
+            <!-- Nodes -->
+            <circle cx="80" cy="60" r="4"/>
+            <circle cx="200" cy="30" r="5"/>
+            <circle cx="320" cy="70" r="3"/>
+            <circle cx="50" cy="180" r="3"/>
+            <circle cx="180" cy="150" r="8"/>
+            <circle cx="300" cy="170" r="4"/>
+            <circle cx="120" cy="280" r="4"/>
+            <circle cx="260" cy="260" r="5"/>
+            <circle cx="180" cy="350" r="3"/>
+            <circle cx="320" cy="330" r="3"/>
+            <circle cx="70" cy="400" r="3"/>
+            <circle cx="220" cy="420" r="4"/>
+            <!-- Connections -->
+            <path class="draw-path" d="M 80 60 Q 135 30 200 30" stroke-width="1.5"/>
+            <path class="draw-path" d="M 200 30 Q 268 36 320 70" stroke-width="1.2"/>
+            <path class="draw-path" d="M 80 60 Q 48 112 50 180" stroke-width="1"/>
+            <path class="draw-path" d="M 80 60 Q 115 92 180 150" stroke-width="1.8"/>
+            <path class="draw-path" d="M 200 30 Q 208 82 180 150" stroke-width="1.5"/>
+            <path class="draw-path" d="M 320 70 Q 328 112 300 170" stroke-width="1.2"/>
+            <path class="draw-path" d="M 300 170 Q 238 148 180 150" stroke-width="1.5"/>
+            <path class="draw-path" d="M 50 180 Q 68 232 120 280" stroke-width="1"/>
+            <path class="draw-path" d="M 180 150 Q 138 208 120 280" stroke-width="1.5"/>
+            <path class="draw-path" d="M 180 150 Q 232 198 260 260" stroke-width="1.8"/>
+            <path class="draw-path" d="M 120 280 Q 142 318 180 350" stroke-width="1.2"/>
+            <path class="draw-path" d="M 260 260 Q 298 288 320 330" stroke-width="1"/>
+            <path class="draw-path" d="M 260 260 Q 212 302 180 350" stroke-width="1.2"/>
+            <path class="draw-path" d="M 180 350 Q 192 388 220 420" stroke-width="1"/>
+            <path class="draw-path" d="M 120 280 Q 82 342 70 400" stroke-width="1"/>
+            <path class="draw-path" d="M 70 400 Q 148 422 220 420" stroke-width="1.2"/>
+        </svg>
+
+        <div class="scroll-cue">Scroll</div>
     </section>
 
     <!-- ════════════════════════════════════════
@@ -380,29 +553,25 @@
     <section class="section">
         <div class="section-inner">
             <div class="section-label">The problem</div>
-            <h2 class="section-title">The supply chain<br>is held together<br>with spreadsheets.</h2>
+            <h2 class="section-title">The supply chain runs on<br>spreadsheets and phone calls.</h2>
             <div class="section-body">
                 <p>International pharmaceutical and CPG supply chains are some of the most regulated systems on earth. Ingredients move across borders governed by drug treaties, import permits, GMP standards, and market authorisations that change by jurisdiction.</p>
                 <br>
                 <p><strong>Nobody has a single system that connects compliant cultivation to manufacturer to distributor.</strong> Suppliers can't find buyers in new markets. Manufacturers can't verify supply chain compliance without weeks of manual diligence. The harder the regulation, the worse the fragmentation.</p>
             </div>
 
-            <div class="manifesto">
-                <div class="manifesto-line"><span>5+ source countries.</span> Each with different export frameworks, quality standards, and treaty obligations.</div>
-                <div class="manifesto-line"><span>Every jurisdiction is different.</span> What's compliant in Australia fails in Germany. What passes in Canada gets rejected in Japan.</div>
-                <div class="manifesto-line"><span>The harder the product, the bigger the gap.</span> Controlled substances, novel ingredients, scheduled goods — the toughest categories have the worst infrastructure.</div>
+            <div class="sketch-list">
+                <div class="sketch-item"><span class="accent">Five-plus source countries.</span> Each with different export frameworks, quality standards, and treaty obligations.</div>
+                <div class="sketch-item"><span class="accent">Every jurisdiction is different.</span> What's compliant in Australia fails in Germany. What passes in Canada gets rejected in Japan.</div>
+                <div class="sketch-item"><span class="accent">The harder the product, the bigger the gap.</span> Controlled substances, novel ingredients, scheduled goods — the toughest categories have the worst infrastructure.</div>
             </div>
         </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-         QUOTE
-    ════════════════════════════════════════ -->
-    <section class="section">
+    <!-- ═══ QUOTE ═══ -->
+    <section class="section quote-section">
         <div class="section-inner">
-            <div class="pull-quote">
-                "Everyone talks about the market opening up.<br>Nobody's building the infrastructure for when it does."
-            </div>
+            <div class="pull-quote">Everyone's waiting for the market to open. Nobody's building the infrastructure for when it does.</div>
         </div>
     </section>
 
@@ -412,7 +581,7 @@
     <section class="section">
         <div class="section-inner">
             <div class="section-label">The timing</div>
-            <h2 class="section-title">A federal shift<br>is coming.</h2>
+            <h2 class="section-title">A federal shift is coming.</h2>
             <div class="section-body">
                 <p>The US market is moving toward federal legalisation of cannabis. When that happens, every international brand, cultivator, and manufacturer will need compliant supply chains overnight. <strong>The companies that already have the map win.</strong></p>
                 <br>
@@ -447,53 +616,38 @@
 
             <div class="card-grid">
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-icon" style="color: var(--green);">&#9670;</div>
-                        <div class="card-heading">Manufacturing intelligence</div>
-                    </div>
+                    <div class="card-dot"></div>
+                    <div class="card-heading">Manufacturing intelligence</div>
                     <div class="card-text">GMP batch records, electronic signatures, quality gates, deviation tracking, CAPA, equipment management, audit trails. Built for Part 11 compliance from line one.</div>
                 </div>
-
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-icon" style="color: var(--accent);">&#9670;</div>
-                        <div class="card-heading">Supply chain mapping</div>
-                    </div>
-                    <div class="card-text">Jurisdiction-aware compliance engine. Knows which suppliers are authorised for which markets. Maps the shortest compliant path from raw material to finished product to shelf.</div>
+                    <div class="card-dot"></div>
+                    <div class="card-heading">Supply chain mapping</div>
+                    <div class="card-text">Jurisdiction-aware compliance engine. Knows which suppliers are authorised for which markets. Maps the shortest compliant path from raw material to finished product.</div>
                 </div>
-
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-icon" style="color: var(--amber);">&#9670;</div>
-                        <div class="card-heading">Regulatory intelligence</div>
-                    </div>
+                    <div class="card-dot"></div>
+                    <div class="card-heading">Regulatory intelligence</div>
                     <div class="card-text">Multi-jurisdiction regulatory framework. Market authorisations, import/export requirements, treaty obligations, labelling rules — all in one system, all current.</div>
                 </div>
-
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-icon" style="color: var(--red);">&#9670;</div>
-                        <div class="card-heading">Label &amp; document control</div>
-                    </div>
+                    <div class="card-dot"></div>
+                    <div class="card-heading">Label &amp; document control</div>
                     <div class="card-text">Dynamic label generation per jurisdiction. Document management with version control, training records, and compliance-ready export for any auditor in any market.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-         QUOTE
-    ════════════════════════════════════════ -->
-    <section class="section">
+    <!-- ═══ QUOTE ═══ -->
+    <section class="section quote-section">
         <div class="section-inner">
-            <div class="pull-quote">
-                "The product doesn't look like cannabis software.<br>That's the point."
-            </div>
+            <div class="pull-quote">It doesn't look like cannabis software. That's entirely the point.</div>
         </div>
     </section>
 
     <!-- ════════════════════════════════════════
-         THE TWO PLAYS
+         THE BUSINESS MODEL
     ════════════════════════════════════════ -->
     <section class="section">
         <div class="section-inner">
@@ -501,7 +655,7 @@
             <h2 class="section-title">Two revenue streams.<br>One network effect.</h2>
 
             <div class="split">
-                <div>
+                <div class="split-col">
                     <div class="split-heading">Manufacturers subscribe.</div>
                     <div class="split-text">
                         The platform is a tool first. Manufacturers pay for the compliance engine — batch records, quality management, regulatory intelligence. It runs their operation. <strong>This is the anchor.</strong>
@@ -509,7 +663,7 @@
                         Every manufacturer who signs up adds demand to the network. They need compliant suppliers. They need distribution channels. The platform knows where to find them.
                     </div>
                 </div>
-                <div>
+                <div class="split-col">
                     <div class="split-heading">Suppliers pay for visibility.</div>
                     <div class="split-text">
                         Cultivators, raw material suppliers, primary producers — they want to be found by manufacturers in markets they can't reach alone. <strong>They pay to be listed as verified, compliant supply chain partners.</strong>
@@ -531,12 +685,12 @@
     <section class="section">
         <div class="section-inner">
             <div class="section-label">The proof</div>
-            <h2 class="section-title">It's not a concept.<br>It's built.</h2>
+            <h2 class="section-title">It's not a concept. It's running.</h2>
             <div class="section-body">
                 <p>The manufacturing intelligence layer is production-ready. Not a mockup. Not a prototype. A working system that handles the full order-to-dispatch lifecycle with GMP compliance baked in.</p>
             </div>
 
-            <div class="stats">
+            <div class="stats-panel">
                 <div class="stat">
                     <div class="stat-number">67</div>
                     <div class="stat-label">Database tables</div>
@@ -547,7 +701,7 @@
                 </div>
                 <div class="stat">
                     <div class="stat-number">100/100</div>
-                    <div class="stat-label">Stress test pass rate</div>
+                    <div class="stat-label">Stress test pass</div>
                 </div>
                 <div class="stat">
                     <div class="stat-number">86</div>
@@ -555,24 +709,35 @@
                 </div>
             </div>
 
-            <div class="manifesto">
-                <div class="manifesto-line"><span>Electronic batch records</span> with step-by-step operator workflows and digital sign-offs.</div>
-                <div class="manifesto-line"><span>Full audit trail</span> on every action. Part 11 compliant from day one.</div>
-                <div class="manifesto-line"><span>Order-to-dispatch pipeline</span> with quality gates, accounting gates, and kanban workflow.</div>
-                <div class="manifesto-line"><span>Intelligent document upload</span> that reads PDFs and extracts structured data automatically.</div>
-                <div class="manifesto-line"><span>Multi-jurisdiction ready.</span> Built for global from the architecture up.</div>
+            <div class="check-list">
+                <div class="check-item">
+                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
+                    <span><strong>Electronic batch records</strong> with step-by-step operator workflows and digital sign-offs.</span>
+                </div>
+                <div class="check-item">
+                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
+                    <span><strong>Full audit trail</strong> on every action. Part 11 compliant from day one.</span>
+                </div>
+                <div class="check-item">
+                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
+                    <span><strong>Order-to-dispatch pipeline</strong> with quality gates, accounting gates, and kanban workflow.</span>
+                </div>
+                <div class="check-item">
+                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
+                    <span><strong>Intelligent document upload</strong> that reads PDFs and extracts structured data automatically.</span>
+                </div>
+                <div class="check-item">
+                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
+                    <span><strong>Multi-jurisdiction ready.</strong> Built for global from the architecture up.</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-         QUOTE
-    ════════════════════════════════════════ -->
-    <section class="section">
+    <!-- ═══ QUOTE ═══ -->
+    <section class="section quote-section">
         <div class="section-inner">
-            <div class="pull-quote">
-                "Most people pitch what they're going to build.<br>We pitch what's already running."
-            </div>
+            <div class="pull-quote">Most people pitch what they're going to build. This is already running.</div>
         </div>
     </section>
 
@@ -589,35 +754,24 @@
 
             <div class="card-grid">
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-icon" style="color: var(--accent);">&#9670;</div>
-                        <div class="card-heading">50/50 equity</div>
-                    </div>
-                    <div class="card-text">You bring the venture. AWA matches with infrastructure, operating system, and build capacity. Equal skin in the game. Equal upside.</div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-icon" style="color: var(--green);">&#9670;</div>
-                        <div class="card-heading">Partner in everything</div>
-                    </div>
-                    <div class="card-text">Join as a partner and you're cross-invested in every venture in the network. Your success compounds with everyone else's. Structural motivation to help each other win.</div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-icon" style="color: var(--amber);">&#9670;</div>
-                        <div class="card-heading">The operating system</div>
-                    </div>
-                    <div class="card-text">AWAI is our shared framework — the tools, workflows, and AI infrastructure that let a small team build at 100x pace. It's how this product went from zero to production-ready in weeks, not years.</div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-icon" style="color: var(--red);">&#9670;</div>
-                        <div class="card-heading">CEO of this venture</div>
-                    </div>
+                    <div class="card-dot"></div>
+                    <div class="card-heading">CEO of this venture</div>
                     <div class="card-text">This isn't a side project or an advisory role. It's a company. It needs a leader who can take it to market, build the team, close the deals, and own the outcome.</div>
+                </div>
+                <div class="card">
+                    <div class="card-dot"></div>
+                    <div class="card-heading">50/50 equity</div>
+                    <div class="card-text">You bring the venture to market. AWA matches with infrastructure, operating system, and build capacity. Equal skin in the game. Equal upside.</div>
+                </div>
+                <div class="card">
+                    <div class="card-dot"></div>
+                    <div class="card-heading">Cross-invested in everything</div>
+                    <div class="card-text">Join as a partner and you're invested in every venture in the network. Your success compounds with everyone else's. Structural motivation to help each other win.</div>
+                </div>
+                <div class="card">
+                    <div class="card-dot"></div>
+                    <div class="card-heading">The operating system</div>
+                    <div class="card-text">AWAI is the shared framework — the tools, workflows, and AI infrastructure that let a small team build at 100x pace. It's how this product went from zero to production-ready in weeks.</div>
                 </div>
             </div>
         </div>
@@ -629,11 +783,23 @@
     <section id="cta" class="section">
         <div class="section-inner">
             <h2 class="cta-title">The map is being drawn.<br>Right now.</h2>
-            <div class="cta-body">
-                The product works. The market is moving. The model is ready. The only question is who's going to run it.
-            </div>
-            <div class="cta-sub">
-                This briefing is for one person. You're reading it because you're that person.
+            <div class="cta-body">The product works. The market is moving. The model is ready. The only question is who's going to run it.</div>
+            <div class="cta-direct">This briefing was written for one person. You're reading it because you're that person.</div>
+
+            <!-- Badger easter egg -->
+            <div class="badger-mark" title="We eat obstacles for breakfast.">
+                <svg viewBox="0 0 100 52" aria-hidden="true">
+                    <path d="M 22 30 C 17 23, 22 16, 32 15 C 42 14, 60 13, 70 16 C 78 18, 82 23, 80 29 C 78 35, 65 39, 50 39 C 35 39, 24 37, 22 30" stroke-width="1.5"/>
+                    <path d="M 80 24 C 84 20, 90 19, 93 22 C 95 25, 93 29, 89 30 C 85 31, 81 29, 80 27" stroke-width="1.5"/>
+                    <path class="stripe" d="M 28 17 C 45 11, 65 12, 78 19" stroke-width="1.3"/>
+                    <line x1="32" y1="37" x2="30" y2="48" stroke-width="1.5"/>
+                    <line x1="43" y1="39" x2="42" y2="48" stroke-width="1.5"/>
+                    <line x1="58" y1="39" x2="59" y2="48" stroke-width="1.5"/>
+                    <line x1="70" y1="35" x2="72" y2="48" stroke-width="1.5"/>
+                    <circle class="eye" cx="89" cy="23" r="1.3"/>
+                    <path d="M 22 28 C 16 22, 12 18, 14 13" stroke-width="1.5"/>
+                    <path d="M 87 20 C 88 17, 91 17, 92 19" stroke-width="1"/>
+                </svg>
             </div>
         </div>
     </section>
@@ -641,124 +807,39 @@
     <!-- ════════════════════════════════════════
          FOOTER
     ════════════════════════════════════════ -->
-    <footer>
-        <div class="brand">"A worthy adversary."</div>
-        <div>AWA &copy; 2026</div>
-    </footer>
+    <footer>2026</footer>
 
     <!-- ════════════════════════════════════════
          JAVASCRIPT
     ════════════════════════════════════════ -->
     <script>
-        // BIFURCATING NETWORK
-        const NetworkGenerator = {
-            paths: [],
-            colors: ['#e2c044', '#52b788', '#c9184a', '#f4d35e', '#a8a29e'],
-
-            generate() {
-                this.paths = [];
-                // Two roots — one from bottom-left, one from bottom-right (supply chain feel)
-                this.branch(200, 980, -80, 160, 7, 0);
-                this.branch(800, 980, -100, 160, 7, 2);
-                // Thin connecting tendrils from center
-                this.branch(500, 990, -90, 120, 5, 1);
-                return this.paths;
-            },
-
-            branch(x, y, angle, length, depth, colorIdx) {
-                if (depth <= 0 || length < 4) return;
-
-                const radians = (angle * Math.PI) / 180;
-                const x2 = x + Math.cos(radians) * length;
-                const y2 = y + Math.sin(radians) * length;
-
-                const cx = (x + x2) / 2 + (Math.random() - 0.5) * length * 0.3;
-                const cy = (y + y2) / 2 + (Math.random() - 0.5) * length * 0.3;
-
-                this.paths.push({
-                    d: `M ${x} ${y} Q ${cx} ${cy} ${x2} ${y2}`,
-                    width: Math.max(0.5, depth * 0.4),
-                    color: this.colors[colorIdx % this.colors.length],
-                    depth: depth,
-                    length: this.paths.length
-                });
-
-                const spread = 20 + (7 - depth) * 5 + Math.random() * 15;
-                const shrink = 0.62 + Math.random() * 0.15;
-
-                this.branch(x2, y2, angle - spread, length * shrink, depth - 1, colorIdx);
-                this.branch(x2, y2, angle + spread, length * shrink, depth - 1, (colorIdx + 1));
-
-                if (Math.random() > 0.7 && depth > 3) {
-                    const mutAngle = angle + (Math.random() - 0.5) * spread * 2;
-                    this.branch(x2, y2, mutAngle, length * shrink * 0.8, depth - 2, (colorIdx + 2));
-                }
-            }
-        };
-
-        // RENDER NETWORK
-        const networkGroup = document.getElementById('network-paths');
-        const allPaths = NetworkGenerator.generate();
-        allPaths.sort((a, b) => b.depth - a.depth);
-
-        const svgNS = 'http://www.w3.org/2000/svg';
-        const pathElements = [];
-
-        allPaths.forEach((p, i) => {
-            const path = document.createElementNS(svgNS, 'path');
-            path.setAttribute('d', p.d);
-            path.setAttribute('stroke', p.color);
-            path.setAttribute('stroke-width', p.width);
-            path.setAttribute('opacity', '0');
-            networkGroup.appendChild(path);
-
-            const totalLength = path.getTotalLength();
-            path.style.strokeDasharray = totalLength;
-            path.style.strokeDashoffset = totalLength;
-
-            pathElements.push({ el: path, totalLength, revealAt: i / allPaths.length });
-        });
-
-        // SCROLL OBSERVER
+        // ═══ SECTION REVEAL ═══
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.12 });
 
         document.querySelectorAll('.section-inner').forEach(el => observer.observe(el));
 
-        // SCROLL NETWORK GROWTH
-        let ticking = false;
+        // ═══ SVG DRAW-ON (hero network) ═══
+        const drawPaths = document.querySelectorAll('.draw-path');
 
-        function getScrollProgress() {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            return Math.min(1, Math.max(0, scrollTop / docHeight));
-        }
-
-        function updateNetwork() {
-            const progress = getScrollProgress();
-            pathElements.forEach((p) => {
-                if (progress >= p.revealAt) {
-                    const localProgress = Math.min(1, (progress - p.revealAt) * allPaths.length * 0.15);
-                    p.el.setAttribute('opacity', localProgress * 0.8);
-                    p.el.style.strokeDashoffset = p.totalLength * (1 - localProgress);
-                } else {
-                    p.el.setAttribute('opacity', '0');
-                    p.el.style.strokeDashoffset = p.totalLength;
-                }
-            });
-        }
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(() => { updateNetwork(); ticking = false; });
-                ticking = true;
-            }
+        drawPaths.forEach(path => {
+            const length = path.getTotalLength();
+            path.style.strokeDasharray = length;
+            path.style.strokeDashoffset = length;
         });
 
-        updateNetwork();
+        // Stagger draw-on after short delay
+        setTimeout(() => {
+            drawPaths.forEach((path, i) => {
+                setTimeout(() => {
+                    path.style.strokeDashoffset = '0';
+                }, i * 120);
+            });
+        }, 400);
     </script>
+
 </body>
 </html>
