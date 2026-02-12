@@ -8,9 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,100..1000;1,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
     <style>
-        /* ═══════════════════════════════════════
-           RESET & VARIABLES
-        ═══════════════════════════════════════ */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
@@ -36,9 +33,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ═══════════════════════════════════════
-           LAYOUT
-        ═══════════════════════════════════════ */
+        /* ═══ LAYOUT ═══ */
         .section {
             padding: 120px 60px;
             display: flex;
@@ -55,9 +50,7 @@
 
         .section-inner.visible { opacity: 1; transform: translateY(0); }
 
-        /* ═══════════════════════════════════════
-           HERO
-        ═══════════════════════════════════════ */
+        /* ═══ HERO ═══ */
         #hero {
             min-height: 88vh;
             align-items: center;
@@ -101,14 +94,13 @@
         }
 
         .hero-sub {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--text-mid);
-            max-width: 580px;
+            max-width: 520px;
             line-height: 1.75;
             font-weight: 400;
         }
 
-        /* Hero network SVG */
         .hero-network {
             position: absolute;
             right: -20px;
@@ -148,9 +140,7 @@
             background: var(--border);
         }
 
-        /* ═══════════════════════════════════════
-           TYPOGRAPHY
-        ═══════════════════════════════════════ */
+        /* ═══ TYPOGRAPHY ═══ */
         .section-label {
             font-size: 0.7rem;
             font-weight: 500;
@@ -170,7 +160,7 @@
         }
 
         .section-body {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.8;
             color: var(--text-mid);
             max-width: 680px;
@@ -178,36 +168,7 @@
 
         .section-body strong { color: var(--text); font-weight: 600; }
 
-        /* ═══════════════════════════════════════
-           SKETCH LIST (left-bordered items)
-        ═══════════════════════════════════════ */
-        .sketch-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin: 40px 0;
-        }
-
-        .sketch-item {
-            padding: 14px 24px;
-            border-left: 2px solid var(--border);
-            font-size: 1rem;
-            color: var(--text-mid);
-            line-height: 1.65;
-            transition: border-color 0.3s ease;
-        }
-
-        .sketch-item:hover { border-left-color: var(--green); }
-
-        .sketch-item .accent {
-            font-family: 'Fraunces', serif;
-            font-size: 1.1rem;
-            color: var(--text);
-        }
-
-        /* ═══════════════════════════════════════
-           PULL QUOTES
-        ═══════════════════════════════════════ */
+        /* ═══ PULL QUOTES ═══ */
         .quote-section { padding: 80px 60px; }
 
         .pull-quote {
@@ -228,9 +189,27 @@
             margin-bottom: 24px;
         }
 
-        /* ═══════════════════════════════════════
-           CARDS
-        ═══════════════════════════════════════ */
+        /* ═══ DOMAINS ═══ */
+        .domains {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 40px 0;
+        }
+
+        .domain-tag {
+            padding: 10px 20px;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--text-mid);
+            background: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .domain-tag:hover { border-color: var(--green); color: var(--green); }
+
+        /* ═══ CARDS ═══ */
         .card-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -272,9 +251,7 @@
             line-height: 1.65;
         }
 
-        /* ═══════════════════════════════════════
-           STATS PANEL
-        ═══════════════════════════════════════ */
+        /* ═══ STATS PANEL ═══ */
         .stats-panel {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -305,9 +282,7 @@
             color: var(--text-muted);
         }
 
-        /* ═══════════════════════════════════════
-           CHECK LIST (proof features)
-        ═══════════════════════════════════════ */
+        /* ═══ CHECK LIST ═══ */
         .check-list {
             display: flex;
             flex-direction: column;
@@ -341,9 +316,54 @@
 
         .check-item strong { color: var(--text); font-weight: 500; }
 
-        /* ═══════════════════════════════════════
-           SPLIT COLUMNS
-        ═══════════════════════════════════════ */
+        /* ═══ FLYWHEEL ═══ */
+        .flywheel {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin: 48px 0;
+        }
+
+        .flywheel-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            padding: 24px 0;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .flywheel-step:last-child {
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .flywheel-num {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--green);
+            line-height: 1;
+            min-width: 40px;
+            opacity: 0.5;
+        }
+
+        .flywheel-content {
+            flex: 1;
+        }
+
+        .flywheel-heading {
+            font-family: 'Fraunces', serif;
+            font-size: 1.15rem;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .flywheel-text {
+            font-size: 0.92rem;
+            color: var(--text-mid);
+            line-height: 1.65;
+        }
+
+        /* ═══ SPLIT COLUMNS ═══ */
         .split {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -359,44 +379,20 @@
 
         .split-heading {
             font-family: 'Fraunces', serif;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--text);
             margin-bottom: 14px;
         }
 
         .split-text {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-mid);
             line-height: 1.75;
         }
 
         .split-text strong { color: var(--text); font-weight: 600; }
 
-        /* ═══════════════════════════════════════
-           DOMAIN TAGS
-        ═══════════════════════════════════════ */
-        .domains {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 40px 0;
-        }
-
-        .domain-tag {
-            padding: 10px 20px;
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            font-size: 0.85rem;
-            color: var(--text-mid);
-            background: #fff;
-            transition: all 0.3s ease;
-        }
-
-        .domain-tag:hover { border-color: var(--green); color: var(--green); }
-
-        /* ═══════════════════════════════════════
-           CTA
-        ═══════════════════════════════════════ */
+        /* ═══ CTA ═══ */
         #cta {
             background: var(--bg-alt);
             text-align: center;
@@ -418,24 +414,13 @@
         }
 
         .cta-body {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--text-mid);
-            max-width: 560px;
+            max-width: 500px;
             line-height: 1.75;
-            margin-bottom: 28px;
         }
 
-        .cta-direct {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            font-style: italic;
-            max-width: 440px;
-            line-height: 1.6;
-        }
-
-        /* ═══════════════════════════════════════
-           BADGER MARK
-        ═══════════════════════════════════════ */
+        /* ═══ BADGER ═══ */
         .badger-mark {
             display: inline-block;
             margin-top: 48px;
@@ -446,10 +431,7 @@
 
         .badger-mark:hover { opacity: 0.4; }
 
-        .badger-mark svg {
-            width: 72px;
-            height: auto;
-        }
+        .badger-mark svg { width: 72px; height: auto; }
 
         .badger-mark path, .badger-mark line, .badger-mark circle {
             fill: none;
@@ -461,9 +443,7 @@
         .badger-mark .stripe { stroke: var(--green); }
         .badger-mark .eye { fill: var(--text); stroke: none; }
 
-        /* ═══════════════════════════════════════
-           FOOTER
-        ═══════════════════════════════════════ */
+        /* ═══ FOOTER ═══ */
         footer {
             text-align: center;
             padding: 48px 40px;
@@ -472,16 +452,12 @@
             letter-spacing: 0.1em;
         }
 
-        /* ═══════════════════════════════════════
-           SVG DRAW-ON
-        ═══════════════════════════════════════ */
+        /* ═══ SVG DRAW-ON ═══ */
         .draw-path {
             transition: stroke-dashoffset 1.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* ═══════════════════════════════════════
-           RESPONSIVE
-        ═══════════════════════════════════════ */
+        /* ═══ RESPONSIVE ═══ */
         @media (max-width: 768px) {
             .section { padding: 80px 24px; }
             .quote-section { padding: 60px 24px; }
@@ -500,19 +476,15 @@
 </head>
 <body>
 
-    <!-- ════════════════════════════════════════
-         HERO
-    ════════════════════════════════════════ -->
+    <!-- ═══ HERO ═══ -->
     <section id="hero" class="section">
         <div class="section-inner">
             <div class="hero-label">Private Briefing</div>
             <h1 class="hero-title">We built<br>the <em>map.</em></h1>
-            <p class="hero-sub">Regulated ingredients cross five countries, three treaty systems, and a dozen jurisdictions before they reach a manufacturer. The infrastructure connecting compliant supply to manufacturing doesn't exist as a product. We built it — and now it needs a leader.</p>
+            <p class="hero-sub">The infrastructure connecting compliant supply to regulated manufacturing across five countries doesn't exist as a product. We built it.</p>
         </div>
 
-        <!-- Network illustration -->
         <svg class="hero-network" viewBox="0 0 400 520" aria-hidden="true">
-            <!-- Nodes -->
             <circle cx="80" cy="60" r="4"/>
             <circle cx="200" cy="30" r="5"/>
             <circle cx="320" cy="70" r="3"/>
@@ -525,7 +497,6 @@
             <circle cx="320" cy="330" r="3"/>
             <circle cx="70" cy="400" r="3"/>
             <circle cx="220" cy="420" r="4"/>
-            <!-- Connections -->
             <path class="draw-path" d="M 80 60 Q 135 30 200 30" stroke-width="1.5"/>
             <path class="draw-path" d="M 200 30 Q 268 36 320 70" stroke-width="1.2"/>
             <path class="draw-path" d="M 80 60 Q 48 112 50 180" stroke-width="1"/>
@@ -547,45 +518,13 @@
         <div class="scroll-cue">Scroll</div>
     </section>
 
-    <!-- ════════════════════════════════════════
-         THE PROBLEM
-    ════════════════════════════════════════ -->
+    <!-- ═══ THE GAP ═══ -->
     <section class="section">
         <div class="section-inner">
-            <div class="section-label">The problem</div>
-            <h2 class="section-title">The supply chain runs on<br>spreadsheets and phone calls.</h2>
+            <div class="section-label">The gap</div>
+            <h2 class="section-title">No one owns the supply chain.</h2>
             <div class="section-body">
-                <p>International pharmaceutical and CPG supply chains are some of the most regulated systems on earth. Ingredients move across borders governed by drug treaties, import permits, GMP standards, and market authorisations that change by jurisdiction.</p>
-                <br>
-                <p><strong>Nobody has a single system that connects compliant cultivation to manufacturer to distributor.</strong> Suppliers can't find buyers in new markets. Manufacturers can't verify supply chain compliance without weeks of manual diligence. The harder the regulation, the worse the fragmentation.</p>
-            </div>
-
-            <div class="sketch-list">
-                <div class="sketch-item"><span class="accent">Five-plus source countries.</span> Each with different export frameworks, quality standards, and treaty obligations.</div>
-                <div class="sketch-item"><span class="accent">Every jurisdiction is different.</span> What's compliant in Australia fails in Germany. What passes in Canada gets rejected in Japan.</div>
-                <div class="sketch-item"><span class="accent">The harder the product, the bigger the gap.</span> Controlled substances, novel ingredients, scheduled goods — the toughest categories have the worst infrastructure.</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ QUOTE ═══ -->
-    <section class="section quote-section">
-        <div class="section-inner">
-            <div class="pull-quote">Everyone's waiting for the market to open. Nobody's building the infrastructure for when it does.</div>
-        </div>
-    </section>
-
-    <!-- ════════════════════════════════════════
-         THE TIMING
-    ════════════════════════════════════════ -->
-    <section class="section">
-        <div class="section-inner">
-            <div class="section-label">The timing</div>
-            <h2 class="section-title">A federal shift is coming.</h2>
-            <div class="section-body">
-                <p>The US market is moving toward federal legalisation of cannabis. When that happens, every international brand, cultivator, and manufacturer will need compliant supply chains overnight. <strong>The companies that already have the map win.</strong></p>
-                <br>
-                <p>Asia Pacific and Europe are already forming distribution networks. Australia, Germany, the UK, Thailand, Israel — all moving. The supply chain connecting these markets doesn't exist as a product. It exists as relationships, phone calls, and trust built over years.</p>
+                <p>Regulated ingredients cross borders governed by drug treaties, import permits, GMP standards, and market authorisations that change by jurisdiction. <strong>There is no single system connecting compliant supply to manufacturing to distribution.</strong> The harder the regulation, the worse the fragmentation.</p>
             </div>
 
             <div class="domains">
@@ -601,39 +540,50 @@
         </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-         THE PRODUCT
-    ════════════════════════════════════════ -->
+    <!-- ═══ QUOTE ═══ -->
+    <section class="section quote-section">
+        <div class="section-inner">
+            <div class="pull-quote">Everyone's waiting for the market to open. Nobody's building the infrastructure for when it does.</div>
+        </div>
+    </section>
+
+    <!-- ═══ THE OPPORTUNITY ═══ -->
     <section class="section">
         <div class="section-inner">
-            <div class="section-label">The product</div>
-            <h2 class="section-title">A compliance engine<br>disguised as software.</h2>
+            <div class="section-label">The opportunity</div>
+            <h2 class="section-title">Own the network,<br>not the software.</h2>
             <div class="section-body">
-                <p>On the surface, it's a GMP-compliant manufacturing system — batch records, electronic signatures, quality management, label control, traceability. Everything a regulated manufacturer needs to operate and pass audit.</p>
-                <br>
-                <p><strong>Underneath, it's a supply chain network.</strong> Every company that signs up becomes a node. Cultivators, manufacturers, distributors, brands — all connected through a compliance layer that maps who can supply what to whom, in which market, under which regulatory framework.</p>
+                <p>The manufacturing system is the gateway — not the product. Give manufacturers a free, best-in-class compliance engine. Once they're on the platform, <strong>monetise everything around them:</strong> labelling, translation, regulatory intelligence, and a marketplace connecting supply to demand across every jurisdiction.</p>
             </div>
 
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-dot"></div>
-                    <div class="card-heading">Manufacturing intelligence</div>
-                    <div class="card-text">GMP batch records, electronic signatures, quality gates, deviation tracking, CAPA, equipment management, audit trails. Built for Part 11 compliance from line one.</div>
+            <div class="flywheel">
+                <div class="flywheel-step">
+                    <div class="flywheel-num">1</div>
+                    <div class="flywheel-content">
+                        <div class="flywheel-heading">Free ERP gets them on the platform.</div>
+                        <div class="flywheel-text">GMP compliance is mandatory. Giving it away removes every adoption barrier. Once their batch records, audit trail, and quality history live here, switching cost is enormous.</div>
+                    </div>
                 </div>
-                <div class="card">
-                    <div class="card-dot"></div>
-                    <div class="card-heading">Supply chain mapping</div>
-                    <div class="card-text">Jurisdiction-aware compliance engine. Knows which suppliers are authorised for which markets. Maps the shortest compliant path from raw material to finished product.</div>
+                <div class="flywheel-step">
+                    <div class="flywheel-num">2</div>
+                    <div class="flywheel-content">
+                        <div class="flywheel-heading">Every company becomes a node.</div>
+                        <div class="flywheel-text">Cultivators, manufacturers, distributors, brands — each signup adds to the network. Suppliers want to be found. Manufacturers want compliant supply. The platform connects them.</div>
+                    </div>
                 </div>
-                <div class="card">
-                    <div class="card-dot"></div>
-                    <div class="card-heading">Regulatory intelligence</div>
-                    <div class="card-text">Multi-jurisdiction regulatory framework. Market authorisations, import/export requirements, treaty obligations, labelling rules — all in one system, all current.</div>
+                <div class="flywheel-step">
+                    <div class="flywheel-num">3</div>
+                    <div class="flywheel-content">
+                        <div class="flywheel-heading">Services compound on the network.</div>
+                        <div class="flywheel-text">Jurisdiction-specific labelling. Regulatory document translation. Compliance intelligence that updates when laws change. Each service is recurring, high-margin, and impossible without the network underneath.</div>
+                    </div>
                 </div>
-                <div class="card">
-                    <div class="card-dot"></div>
-                    <div class="card-heading">Label &amp; document control</div>
-                    <div class="card-text">Dynamic label generation per jurisdiction. Document management with version control, training records, and compliance-ready export for any auditor in any market.</div>
+                <div class="flywheel-step">
+                    <div class="flywheel-num">4</div>
+                    <div class="flywheel-content">
+                        <div class="flywheel-heading">The data moat deepens.</div>
+                        <div class="flywheel-text">Over time, the platform knows which suppliers serve which markets, what's compliant where, which routes work. That intelligence becomes the most valuable asset in the industry.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -642,52 +592,52 @@
     <!-- ═══ QUOTE ═══ -->
     <section class="section quote-section">
         <div class="section-inner">
-            <div class="pull-quote">It doesn't look like cannabis software. That's entirely the point.</div>
+            <div class="pull-quote">The ERP is the Trojan horse. The network is the empire.</div>
         </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-         THE BUSINESS MODEL
-    ════════════════════════════════════════ -->
+    <!-- ═══ THE REVENUE ═══ -->
     <section class="section">
         <div class="section-inner">
-            <div class="section-label">The business model</div>
-            <h2 class="section-title">Two revenue streams.<br>One network effect.</h2>
+            <div class="section-label">The revenue</div>
+            <h2 class="section-title">Four layers. All recurring.</h2>
 
-            <div class="split">
-                <div class="split-col">
-                    <div class="split-heading">Manufacturers subscribe.</div>
-                    <div class="split-text">
-                        The platform is a tool first. Manufacturers pay for the compliance engine — batch records, quality management, regulatory intelligence. It runs their operation. <strong>This is the anchor.</strong>
-                        <br><br>
-                        Every manufacturer who signs up adds demand to the network. They need compliant suppliers. They need distribution channels. The platform knows where to find them.
-                    </div>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-dot"></div>
+                    <div class="card-heading">Labelling</div>
+                    <div class="card-text">Every product in every market needs compliant labels. Different jurisdictions, different rules, different languages. Per-label or per-market subscription. High volume, ongoing.</div>
                 </div>
-                <div class="split-col">
-                    <div class="split-heading">Suppliers pay for visibility.</div>
-                    <div class="split-text">
-                        Cultivators, raw material suppliers, primary producers — they want to be found by manufacturers in markets they can't reach alone. <strong>They pay to be listed as verified, compliant supply chain partners.</strong>
-                        <br><br>
-                        They get an account. The account is easy. The system is intuitive, compliant, and actually useful. They start using it. Then they want the full platform wherever they operate.
-                    </div>
+                <div class="card">
+                    <div class="card-dot"></div>
+                    <div class="card-heading">Translation</div>
+                    <div class="card-text">Regulatory documents, certificates of analysis, marketing materials — all need jurisdiction-specific translation. Per-document or bundled into market-entry packages.</div>
+                </div>
+                <div class="card">
+                    <div class="card-dot"></div>
+                    <div class="card-heading">Regulatory intelligence</div>
+                    <div class="card-text">Laws change. Markets shift. Manufacturers pay to know what changed this month in Germany, Thailand, or Australia. Continuous subscription, high retention.</div>
+                </div>
+                <div class="card">
+                    <div class="card-dot"></div>
+                    <div class="card-heading">Network marketplace</div>
+                    <div class="card-text">Suppliers pay for verified listings and visibility. Manufacturers pay for introductions to compliant supply in new markets. The platform takes a cut of every connection it facilitates.</div>
                 </div>
             </div>
 
             <div class="section-body">
-                <p>The more manufacturers join, the more valuable supplier listings become. The more suppliers join, the more useful the platform is for manufacturers. <strong>The network compounds.</strong></p>
+                <p>More manufacturers join, more valuable supplier listings become. More suppliers list, more useful the platform is for manufacturers. <strong>The network compounds. The revenue compounds with it.</strong></p>
             </div>
         </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-         THE PROOF
-    ════════════════════════════════════════ -->
+    <!-- ═══ THE GATEWAY ═══ -->
     <section class="section">
         <div class="section-inner">
-            <div class="section-label">The proof</div>
-            <h2 class="section-title">It's not a concept. It's running.</h2>
+            <div class="section-label">The gateway</div>
+            <h2 class="section-title">The compliance engine is built.<br>It's running.</h2>
             <div class="section-body">
-                <p>The manufacturing intelligence layer is production-ready. Not a mockup. Not a prototype. A working system that handles the full order-to-dispatch lifecycle with GMP compliance baked in.</p>
+                <p>Not a mockup. Not a prototype. A production-ready GMP manufacturing system that handles the full order-to-dispatch lifecycle. <strong>This is the loss leader that gets every manufacturer onto the network.</strong></p>
             </div>
 
             <div class="stats-panel">
@@ -712,23 +662,19 @@
             <div class="check-list">
                 <div class="check-item">
                     <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Electronic batch records</strong> with step-by-step operator workflows and digital sign-offs.</span>
+                    <span><strong>Electronic batch records</strong> — step-by-step operator workflows with digital sign-offs.</span>
                 </div>
                 <div class="check-item">
                     <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Full audit trail</strong> on every action. Part 11 compliant from day one.</span>
+                    <span><strong>Full audit trail</strong> — every action logged. Part 11 compliant from day one.</span>
                 </div>
                 <div class="check-item">
                     <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Order-to-dispatch pipeline</strong> with quality gates, accounting gates, and kanban workflow.</span>
+                    <span><strong>Order-to-dispatch pipeline</strong> — quality gates, accounting gates, kanban workflow.</span>
                 </div>
                 <div class="check-item">
                     <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Intelligent document upload</strong> that reads PDFs and extracts structured data automatically.</span>
-                </div>
-                <div class="check-item">
-                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Multi-jurisdiction ready.</strong> Built for global from the architecture up.</span>
+                    <span><strong>Multi-jurisdiction architecture</strong> — built for global from the foundation up.</span>
                 </div>
             </div>
         </div>
@@ -741,52 +687,36 @@
         </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-         THE MODEL
-    ════════════════════════════════════════ -->
+    <!-- ═══ THE TIMING ═══ -->
     <section class="section">
         <div class="section-inner">
-            <div class="section-label">The model</div>
-            <h2 class="section-title">This isn't a job offer.<br>It's a guild.</h2>
+            <div class="section-label">The timing</div>
+            <h2 class="section-title">A federal trigger is coming.</h2>
             <div class="section-body">
-                <p>AWA is a cooperative venture studio. A small, tight group of people who build businesses at a pace most companies can't comprehend. Not advisors. Not consultants. <strong>Builders who own what they build.</strong></p>
+                <p>The US is moving toward federal legalisation. When it happens, every international brand, cultivator, and manufacturer needs compliant supply chains overnight. <strong>The companies already on the network win.</strong></p>
+                <br>
+                <p>Cannabis is the hardest regulatory vertical. Solve this, and pharma, nutraceuticals, and CPG are easier expansions with the same infrastructure.</p>
             </div>
 
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-dot"></div>
-                    <div class="card-heading">CEO of this venture</div>
-                    <div class="card-text">This isn't a side project or an advisory role. It's a company. It needs a leader who can take it to market, build the team, close the deals, and own the outcome.</div>
+            <div class="split">
+                <div class="split-col">
+                    <div class="split-heading">Before federal.</div>
+                    <div class="split-text">Build the network across existing markets — Australia, Germany, UK, Thailand, Israel, Canada, Colombia. <strong>Each company on the platform is a node that compounds in value.</strong></div>
                 </div>
-                <div class="card">
-                    <div class="card-dot"></div>
-                    <div class="card-heading">50/50 equity</div>
-                    <div class="card-text">You bring the venture to market. AWA matches with infrastructure, operating system, and build capacity. Equal skin in the game. Equal upside.</div>
-                </div>
-                <div class="card">
-                    <div class="card-dot"></div>
-                    <div class="card-heading">Cross-invested in everything</div>
-                    <div class="card-text">Join as a partner and you're invested in every venture in the network. Your success compounds with everyone else's. Structural motivation to help each other win.</div>
-                </div>
-                <div class="card">
-                    <div class="card-dot"></div>
-                    <div class="card-heading">The operating system</div>
-                    <div class="card-text">AWAI is the shared framework — the tools, workflows, and AI infrastructure that let a small team build at 100x pace. It's how this product went from zero to production-ready in weeks.</div>
+                <div class="split-col">
+                    <div class="split-heading">After federal.</div>
+                    <div class="split-text">The US opens and every international player scrambles for compliant infrastructure. <strong>We're already running. They come to us.</strong></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-         CTA
-    ════════════════════════════════════════ -->
+    <!-- ═══ CTA ═══ -->
     <section id="cta" class="section">
         <div class="section-inner">
             <h2 class="cta-title">The map is being drawn.<br>Right now.</h2>
-            <div class="cta-body">The product works. The market is moving. The model is ready. The only question is who's going to run it.</div>
-            <div class="cta-direct">This briefing was written for one person. You're reading it because you're that person.</div>
+            <div class="cta-body">The gateway is built. The network is forming. The timing is closing.</div>
 
-            <!-- Badger easter egg -->
             <div class="badger-mark" title="We eat obstacles for breakfast.">
                 <svg viewBox="0 0 100 52" aria-hidden="true">
                     <path d="M 22 30 C 17 23, 22 16, 32 15 C 42 14, 60 13, 70 16 C 78 18, 82 23, 80 29 C 78 35, 65 39, 50 39 C 35 39, 24 37, 22 30" stroke-width="1.5"/>
@@ -804,16 +734,10 @@
         </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-         FOOTER
-    ════════════════════════════════════════ -->
     <footer>2026</footer>
 
-    <!-- ════════════════════════════════════════
-         JAVASCRIPT
-    ════════════════════════════════════════ -->
     <script>
-        // ═══ SECTION REVEAL ═══
+        // Section reveal on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -822,7 +746,7 @@
 
         document.querySelectorAll('.section-inner').forEach(el => observer.observe(el));
 
-        // ═══ SVG DRAW-ON (hero network) ═══
+        // SVG draw-on (hero network)
         const drawPaths = document.querySelectorAll('.draw-path');
 
         drawPaths.forEach(path => {
@@ -831,7 +755,6 @@
             path.style.strokeDashoffset = length;
         });
 
-        // Stagger draw-on after short delay
         setTimeout(() => {
             drawPaths.forEach((path, i) => {
                 setTimeout(() => {
