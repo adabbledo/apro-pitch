@@ -392,6 +392,44 @@
 
         .split-text strong { color: var(--text); font-weight: 600; }
 
+        /* ═══ COUNTRY GRID ═══ */
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 48px 0;
+        }
+
+        .country-card {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 20px 18px;
+            transition: border-color 0.3s ease;
+        }
+
+        .country-card:hover {
+            border-color: var(--green);
+        }
+
+        .country-name {
+            font-family: 'Fraunces', serif;
+            font-size: 1.05rem;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .country-metric {
+            font-size: 0.82rem;
+            color: var(--text-mid);
+            line-height: 1.55;
+        }
+
+        .country-metric strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
         /* ═══ CTA ═══ */
         #cta {
             background: var(--bg-alt);
@@ -465,6 +503,7 @@
             .card-grid { grid-template-columns: 1fr; }
             .split { grid-template-columns: 1fr; gap: 32px; }
             .stats-panel { grid-template-columns: 1fr 1fr; gap: 32px 16px; }
+            .country-grid { grid-template-columns: 1fr 1fr; }
             .hero-network { display: none; }
             .scroll-cue { left: 24px; }
         }
@@ -481,7 +520,7 @@
         <div class="section-inner">
             <div class="hero-label">Private Briefing</div>
             <h1 class="hero-title">We built<br>the <em>map.</em></h1>
-            <p class="hero-sub">The infrastructure connecting compliant supply to regulated manufacturing across five countries doesn't exist as a product. We built it.</p>
+            <p class="hero-sub">The infrastructure connecting compliant supply to regulated manufacturing across seven countries doesn't exist as a product. We built it.</p>
         </div>
 
         <svg class="hero-network" viewBox="0 0 400 520" aria-hidden="true">
@@ -528,13 +567,13 @@
             </div>
 
             <div class="domains">
-                <div class="domain-tag">Australia &amp; New Zealand</div>
-                <div class="domain-tag">Germany &amp; EU</div>
-                <div class="domain-tag">United Kingdom</div>
-                <div class="domain-tag">Thailand</div>
-                <div class="domain-tag">Israel</div>
+                <div class="domain-tag">Australia</div>
+                <div class="domain-tag">New Zealand</div>
                 <div class="domain-tag">Canada</div>
-                <div class="domain-tag">Colombia</div>
+                <div class="domain-tag">Germany</div>
+                <div class="domain-tag">Thailand</div>
+                <div class="domain-tag">United Kingdom</div>
+                <div class="domain-tag">South Africa</div>
                 <div class="domain-tag">United States (pending)</div>
             </div>
         </div>
@@ -547,13 +586,99 @@
         </div>
     </section>
 
+    <!-- ═══ THE NETWORK ═══ -->
+    <section class="section">
+        <div class="section-inner">
+            <div class="section-label">The network</div>
+            <h2 class="section-title">Seven markets. 11,000+ operators.<br>Zero infrastructure.</h2>
+            <div class="section-body">
+                <p>We mapped the licensed cannabis supply chain across seven countries. Manufacturers, cultivators, labs, distributors, pharmacies, clinics &mdash; every node that touches a regulated product. <strong>The total addressable network is larger than anyone has quantified. And none of them have purpose-built compliance tools.</strong></p>
+            </div>
+
+            <div class="stats-panel">
+                <div class="stat">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Markets mapped</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">11,000+</div>
+                    <div class="stat-label">Licensed operators</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">$8B+</div>
+                    <div class="stat-label">Combined market</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">70%</div>
+                    <div class="stat-label">Time saved</div>
+                </div>
+            </div>
+
+            <div class="country-grid">
+                <div class="country-card">
+                    <div class="country-name">Canada</div>
+                    <div class="country-metric"><strong>C$5.2B</strong> legal retail</div>
+                    <div class="country-metric"><strong>5,100+</strong> operators</div>
+                    <div class="country-metric">917 federal licences. Mature market, consolidating.</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-name">Germany</div>
+                    <div class="country-metric"><strong>&euro;2B</strong> market</div>
+                    <div class="country-metric"><strong>2,500+</strong> operators</div>
+                    <div class="country-metric">900K+ patients. Largest in Europe. Cannabis clubs emerging.</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-name">Thailand</div>
+                    <div class="country-metric"><strong>$1.7B</strong> market</div>
+                    <div class="country-metric"><strong>2,000+</strong> operators</div>
+                    <div class="country-metric">Medical-only pivot. 149 GACP farms. Regulatory reset.</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-name">Australia</div>
+                    <div class="country-metric"><strong>A$446M</strong> market</div>
+                    <div class="country-metric"><strong>180+</strong> operators</div>
+                    <div class="country-metric">40 cultivators, 25 manufacturers. Imports up 959% in 3 years.</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-name">South Africa</div>
+                    <div class="country-metric"><strong>$315M</strong> market</div>
+                    <div class="country-metric"><strong>1,500+</strong> operators</div>
+                    <div class="country-metric">Export-focused. Presidential backing. 120 export licences.</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-name">United Kingdom</div>
+                    <div class="country-metric"><strong>&pound;260M</strong> market</div>
+                    <div class="country-metric"><strong>250+</strong> operators</div>
+                    <div class="country-metric">Prescriptions doubled YoY. 38+ private clinics. First domestic grows.</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-name">New Zealand</div>
+                    <div class="country-metric"><strong>Emerging</strong></div>
+                    <div class="country-metric"><strong>275+</strong> operators</div>
+                    <div class="country-metric">160K+ prescriptions. Export deregulated July 2024.</div>
+                </div>
+            </div>
+
+            <div class="split">
+                <div class="split-col">
+                    <div class="split-heading">Without APro</div>
+                    <div class="split-text"><strong>61 hours per week</strong> on compliance and supply chain administration. Manual batch records. Paper audit trails. Spreadsheet inventory. Physical supplier qualification binders. Everything duplicated for every jurisdiction.</div>
+                </div>
+                <div class="split-col">
+                    <div class="split-heading">With APro</div>
+                    <div class="split-text"><strong>15 hours per week.</strong> Electronic batch records auto-generate. Audit trail is automatic. Inventory updates in real time. Suppliers pre-qualified in the system. One platform, every jurisdiction. <strong>70% reduction &mdash; claimed conservatively.</strong></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ═══ THE OPPORTUNITY ═══ -->
     <section class="section">
         <div class="section-inner">
             <div class="section-label">The opportunity</div>
             <h2 class="section-title">Own the network,<br>not the software.</h2>
             <div class="section-body">
-                <p>The manufacturing system is the gateway — not the product. Give manufacturers a free, best-in-class compliance engine. Once they're on the platform, <strong>monetise everything around them:</strong> labelling, translation, regulatory intelligence, and a marketplace connecting supply to demand across every jurisdiction.</p>
+                <p>The manufacturing system is the gateway &mdash; not the product. Give every supply chain node a free, best-in-class compliance engine. Once they're on the platform, <strong>monetise everything around them:</strong> labelling, translation, regulatory intelligence, network connections, and strategic access across every jurisdiction.</p>
             </div>
 
             <div class="flywheel">
@@ -567,8 +692,8 @@
                 <div class="flywheel-step">
                     <div class="flywheel-num">2</div>
                     <div class="flywheel-content">
-                        <div class="flywheel-heading">Every company becomes a node.</div>
-                        <div class="flywheel-text">Cultivators, manufacturers, distributors, brands — each signup adds to the network. Suppliers want to be found. Manufacturers want compliant supply. The platform connects them.</div>
+                        <div class="flywheel-heading">Each manufacturer pulls their supply chain in.</div>
+                        <div class="flywheel-text">Path of least resistance: manufacturers join first, then pull in their labs, suppliers, and distributors. Each signup adds a node. Suppliers want to be found. Buyers want compliant supply. The platform connects them.</div>
                     </div>
                 </div>
                 <div class="flywheel-step">
@@ -600,7 +725,7 @@
     <section class="section">
         <div class="section-inner">
             <div class="section-label">The revenue</div>
-            <h2 class="section-title">Four layers. All recurring.</h2>
+            <h2 class="section-title">Six layers. All recurring.</h2>
 
             <div class="card-grid">
                 <div class="card">
@@ -611,22 +736,32 @@
                 <div class="card">
                     <div class="card-dot"></div>
                     <div class="card-heading">Translation</div>
-                    <div class="card-text">Regulatory documents, certificates of analysis, marketing materials — all need jurisdiction-specific translation. Per-document or bundled into market-entry packages.</div>
+                    <div class="card-text">Regulatory documents, certificates of analysis, marketing materials &mdash; all need jurisdiction-specific translation. Per-document or bundled into market-entry packages.</div>
                 </div>
                 <div class="card">
                     <div class="card-dot"></div>
                     <div class="card-heading">Regulatory intelligence</div>
-                    <div class="card-text">Laws change. Markets shift. Manufacturers pay to know what changed this month in Germany, Thailand, or Australia. Continuous subscription, high retention.</div>
+                    <div class="card-text">Laws change. Markets shift. Operators pay to know what changed this month in Germany, Thailand, or Australia. 207 deterministic checks. Continuous subscription, high retention.</div>
                 </div>
                 <div class="card">
                     <div class="card-dot"></div>
                     <div class="card-heading">Network marketplace</div>
                     <div class="card-text">Suppliers pay for verified listings and visibility. Manufacturers pay for introductions to compliant supply in new markets. The platform takes a cut of every connection it facilitates.</div>
                 </div>
+                <div class="card">
+                    <div class="card-dot"></div>
+                    <div class="card-heading">Strategic partner access</div>
+                    <div class="card-text">Major players &mdash; genetics companies, equipment suppliers, international brands &mdash; pay premium rates to reach the entire network. One integration, every market.</div>
+                </div>
+                <div class="card">
+                    <div class="card-dot"></div>
+                    <div class="card-heading">Exclusivity</div>
+                    <div class="card-text">Lock a region, a category, or a product type. The only certified lab in Thailand on the platform. The only cold chain provider in Germany. Scarcity compounds value.</div>
+                </div>
             </div>
 
             <div class="section-body">
-                <p>More manufacturers join, more valuable supplier listings become. More suppliers list, more useful the platform is for manufacturers. <strong>The network compounds. The revenue compounds with it.</strong></p>
+                <p>More operators join, more valuable the network becomes. More suppliers list, more useful the platform is for manufacturers. <strong>The network compounds. The revenue compounds with it.</strong></p>
             </div>
         </div>
     </section>
@@ -637,44 +772,52 @@
             <div class="section-label">The gateway</div>
             <h2 class="section-title">The compliance engine is built.<br>It's running.</h2>
             <div class="section-body">
-                <p>Not a mockup. Not a prototype. A production-ready GMP manufacturing system that handles the full order-to-dispatch lifecycle. <strong>This is the loss leader that gets every manufacturer onto the network.</strong></p>
+                <p>Not a mockup. Not a prototype. A production-ready GMP manufacturing system that handles the full order-to-dispatch lifecycle. <strong>This is the loss leader that gets every operator onto the network.</strong></p>
             </div>
 
             <div class="stats-panel">
                 <div class="stat">
-                    <div class="stat-number">67</div>
+                    <div class="stat-number">69</div>
                     <div class="stat-label">Database tables</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">10,800+</div>
+                    <div class="stat-number">11,300+</div>
                     <div class="stat-label">Lines of code</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">100/100</div>
-                    <div class="stat-label">Stress test pass</div>
+                    <div class="stat-number">109</div>
+                    <div class="stat-label">Automated tests</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">86</div>
-                    <div class="stat-label">Automated tests</div>
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Target markets</div>
                 </div>
             </div>
 
             <div class="check-list">
                 <div class="check-item">
                     <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Electronic batch records</strong> — step-by-step operator workflows with digital sign-offs.</span>
+                    <span><strong>Electronic batch records</strong> &mdash; step-by-step operator workflows with digital sign-offs.</span>
                 </div>
                 <div class="check-item">
                     <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Full audit trail</strong> — every action logged. Part 11 compliant from day one.</span>
+                    <span><strong>Full audit trail</strong> &mdash; every action logged. 21 CFR Part 11 compliant from day one.</span>
                 </div>
                 <div class="check-item">
                     <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Order-to-dispatch pipeline</strong> — quality gates, accounting gates, kanban workflow.</span>
+                    <span><strong>Order-to-dispatch pipeline</strong> &mdash; quality gates, accounting gates, kanban workflow.</span>
                 </div>
                 <div class="check-item">
                     <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Multi-jurisdiction architecture</strong> — built for global from the foundation up.</span>
+                    <span><strong>Multi-jurisdiction architecture</strong> &mdash; built for global from the foundation up.</span>
+                </div>
+                <div class="check-item">
+                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
+                    <span><strong>Intelligence engine</strong> &mdash; 207 deterministic compliance checks across 6 regulatory domains. No AI, no guesswork.</span>
+                </div>
+                <div class="check-item">
+                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
+                    <span><strong>AWS deployment ready</strong> &mdash; Docker containerised, ECR hosted, multi-region infrastructure prepared.</span>
                 </div>
             </div>
         </div>
@@ -687,6 +830,59 @@
         </div>
     </section>
 
+    <!-- ═══ THE ROADMAP ═══ -->
+    <section class="section">
+        <div class="section-inner">
+            <div class="section-label">The roadmap</div>
+            <h2 class="section-title">Three markets in 2026.<br>Seven by 2027.</h2>
+            <div class="section-body">
+                <p>The infrastructure is built. Deployment is staged by regulatory priority and live contacts on the ground.</p>
+            </div>
+
+            <div class="flywheel">
+                <div class="flywheel-step">
+                    <div class="flywheel-num">Q2</div>
+                    <div class="flywheel-content">
+                        <div class="flywheel-heading">April 2026 &mdash; Australia go-live.</div>
+                        <div class="flywheel-text">First market. Live contacts across 180+ operators &mdash; manufacturers, labs, cultivators, and 500+ pharmacies. A$446M market growing 78% CAGR.</div>
+                    </div>
+                </div>
+                <div class="flywheel-step">
+                    <div class="flywheel-num">Q2</div>
+                    <div class="flywheel-content">
+                        <div class="flywheel-heading">May&ndash;June 2026 &mdash; Thailand go-live.</div>
+                        <div class="flywheel-text">2,000+ professional operators in a $1.7B market pivoting to medical-only compliance. The operators who survive the regulatory reset need exactly what we built.</div>
+                    </div>
+                </div>
+                <div class="flywheel-step">
+                    <div class="flywheel-num">Q3</div>
+                    <div class="flywheel-content">
+                        <div class="flywheel-heading">July 2026 &mdash; Germany go-live.</div>
+                        <div class="flywheel-text">Europe's largest medical cannabis market. &euro;2B and growing. 900,000+ patients. 368 cannabis clubs. Import quota hit 192.5 tonnes in 2025 and still rising.</div>
+                    </div>
+                </div>
+                <div class="flywheel-step">
+                    <div class="flywheel-num">'27</div>
+                    <div class="flywheel-content">
+                        <div class="flywheel-heading">2027 &mdash; UK, New Zealand, South Africa, Canada.</div>
+                        <div class="flywheel-text">Seven markets live. Network effects compound. Every node makes the next one easier to acquire. Revenue from every layer of the model.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="split">
+                <div class="split-col">
+                    <div class="split-heading">Year 1.</div>
+                    <div class="split-text"><strong>200 nodes across 3 markets.</strong> First recurring revenue from paid tools and node visibility. Each manufacturer pulls their labs, suppliers, and distributors onto the platform. The network seeds itself.</div>
+                </div>
+                <div class="split-col">
+                    <div class="split-heading">Year 2.</div>
+                    <div class="split-text"><strong>1,000 nodes across 7 markets.</strong> Six revenue layers active. The platform knows which suppliers serve which markets, what's compliant where, which routes work. <strong>That intelligence is the product.</strong></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ═══ THE TIMING ═══ -->
     <section class="section">
         <div class="section-inner">
@@ -695,17 +891,17 @@
             <div class="section-body">
                 <p>The US is moving toward federal legalisation. When it happens, every international brand, cultivator, and manufacturer needs compliant supply chains overnight. <strong>The companies already on the network win.</strong></p>
                 <br>
-                <p>Cannabis is the hardest regulatory vertical. Solve this, and pharma, nutraceuticals, and CPG are easier expansions with the same infrastructure.</p>
+                <p>Cannabis is the hardest regulatory vertical. Solve this, and pharma, nutraceuticals, and CPG are easier expansions with the same infrastructure. <strong>When the network is large enough, it challenges the assumption that legacy enterprise vendors own regulated verticals.</strong></p>
             </div>
 
             <div class="split">
                 <div class="split-col">
                     <div class="split-heading">Before federal.</div>
-                    <div class="split-text">Build the network across existing markets — Australia, Germany, UK, Thailand, Israel, Canada, Colombia. <strong>Each company on the platform is a node that compounds in value.</strong></div>
+                    <div class="split-text">Build the network across seven existing markets. <strong>Each company on the platform is a node that compounds in value.</strong> Contacts are live. Infrastructure is built. Go-live is weeks away, not years.</div>
                 </div>
                 <div class="split-col">
                     <div class="split-heading">After federal.</div>
-                    <div class="split-text">The US opens and every international player scrambles for compliant infrastructure. <strong>We're already running. They come to us.</strong></div>
+                    <div class="split-text">The US opens and every international player scrambles for compliant infrastructure. <strong>We're already running in seven countries. They come to us.</strong></div>
                 </div>
             </div>
         </div>
@@ -715,7 +911,7 @@
     <section id="cta" class="section">
         <div class="section-inner">
             <h2 class="cta-title">The map is being drawn.<br>Right now.</h2>
-            <div class="cta-body">The gateway is built. The network is forming. The timing is closing.</div>
+            <div class="cta-body">The gateway is built. The network is forming. Seven markets. Eleven thousand operators. The timing is closing.</div>
 
             <div class="badger-mark" title="We eat obstacles for breakfast.">
                 <svg viewBox="0 0 100 52" aria-hidden="true">
