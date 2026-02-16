@@ -101,25 +101,22 @@
             font-weight: 400;
         }
 
-        .hero-watermark {
+        .hero-network {
             position: absolute;
-            right: -40px;
+            right: -20px;
             top: 50%;
             transform: translateY(-50%);
-            width: 500px;
-            height: 600px;
+            width: 420px;
+            height: 520px;
             opacity: 0.12;
             pointer-events: none;
         }
 
-        .hero-watermark circle { fill: var(--text); }
-        .hero-watermark path {
+        .hero-network circle { fill: var(--text); }
+        .hero-network path {
             fill: none;
             stroke: var(--text);
             stroke-linecap: round;
-        }
-        .hero-watermark .route-secondary {
-            stroke-dasharray: 6 4;
         }
 
         .scroll-cue {
@@ -233,33 +230,19 @@
             box-shadow: 0 2px 16px rgba(45, 106, 79, 0.06);
         }
 
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .card-header .card-dot {
-            margin-bottom: 0;
-        }
-
-        .card-header .card-heading {
-            margin-bottom: 0;
-        }
-
         .card-dot {
             width: 6px;
             height: 6px;
             border-radius: 50%;
             background: var(--green);
-            flex-shrink: 0;
+            margin-bottom: 16px;
         }
 
         .card-heading {
             font-family: 'Fraunces', serif;
             font-size: 1.2rem;
             color: var(--text);
+            margin-bottom: 10px;
         }
 
         .card-text {
@@ -280,8 +263,6 @@
             border: 1px solid var(--border-light);
         }
 
-        .stats-panel + .stats-footnote { margin-top: -36px; }
-
         .stat { text-align: center; }
 
         .stat-number {
@@ -299,37 +280,6 @@
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--text-muted);
-        }
-
-        .stats-footnote {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            text-align: center;
-            margin: 16px 0 48px;
-            line-height: 1.6;
-        }
-
-        /* ═══ SUMMARY STATS BAR ═══ */
-        .summary-bar {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            padding: 20px 24px;
-            background: var(--green-light);
-            border-radius: 8px;
-            margin: 32px 0;
-            flex-wrap: wrap;
-        }
-
-        .summary-bar .summary-stat {
-            font-size: 0.88rem;
-            color: var(--text-mid);
-            text-align: center;
-        }
-
-        .summary-bar .summary-stat strong {
-            color: var(--green);
-            font-weight: 700;
         }
 
         /* ═══ CHECK LIST ═══ */
@@ -429,7 +379,7 @@
 
         .split-heading {
             font-family: 'Fraunces', serif;
-            font-size: 1.8rem;
+            font-size: 1.3rem;
             color: var(--text);
             margin-bottom: 14px;
         }
@@ -441,68 +391,6 @@
         }
 
         .split-text strong { color: var(--text); font-weight: 600; }
-
-        /* ═══ TOOL CARDS (Without/With) ═══ */
-        .tool-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin: 32px 0;
-        }
-
-        .tool-card {
-            background: #fff;
-            border: 1px solid var(--border-light);
-            border-radius: 8px;
-            padding: 28px;
-            transition: border-color 0.3s ease;
-        }
-
-        .tool-card:hover {
-            border-color: var(--green);
-        }
-
-        .tool-card-name {
-            font-family: 'Fraunces', serif;
-            font-size: 1.15rem;
-            color: var(--text);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .tool-card-name::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--green);
-            flex-shrink: 0;
-        }
-
-        .tool-card-split {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-        }
-
-        .tool-col-heading {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-
-        .tool-col-heading.with-heading { color: var(--green); }
-
-        .tool-col-text {
-            font-size: 0.88rem;
-            color: var(--text-mid);
-            line-height: 1.65;
-        }
 
         /* ═══ COUNTRY GRID ═══ */
         .country-grid {
@@ -542,57 +430,33 @@
             font-weight: 600;
         }
 
-        /* ═══ NEXT WAVE CARDS ═══ */
-        .next-wave-label {
+        .country-timing {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--green);
+            background: rgba(45, 106, 79, 0.08);
+            padding: 3px 10px;
+            border-radius: 100px;
+            margin-bottom: 10px;
+        }
+
+        .future-markets-header {
+            margin-top: 56px;
+            margin-bottom: 8px;
             font-family: 'Fraunces', serif;
             font-size: 1.4rem;
             color: var(--text);
-            margin-top: 64px;
-            margin-bottom: 8px;
+            font-weight: 400;
         }
 
-        .next-wave-sub {
-            font-size: 0.95rem;
+        .future-markets-sub {
+            font-size: 0.88rem;
             color: var(--text-mid);
-            margin-bottom: 24px;
-            line-height: 1.7;
-        }
-
-        .next-wave-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin: 24px 0;
-        }
-
-        .next-wave-card {
-            background: #fff;
-            border: 1px solid var(--border-light);
-            border-radius: 8px;
-            padding: 20px 18px;
-            transition: border-color 0.3s ease;
-        }
-
-        .next-wave-card:hover {
-            border-color: var(--green);
-        }
-
-        .next-wave-card .country-name {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .timing-badge {
-            font-size: 0.6rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--green);
-            background: var(--green-light);
-            padding: 2px 8px;
-            border-radius: 100px;
-            white-space: nowrap;
+            margin-bottom: 0;
+            line-height: 1.65;
         }
 
         /* ═══ CTA ═══ */
@@ -669,11 +533,8 @@
             .split { grid-template-columns: 1fr; gap: 32px; }
             .stats-panel { grid-template-columns: 1fr 1fr; gap: 32px 16px; }
             .country-grid { grid-template-columns: 1fr 1fr; }
-            .next-wave-grid { grid-template-columns: 1fr 1fr; }
-            .hero-watermark { display: none; }
+            .hero-network { display: none; }
             .scroll-cue { left: 24px; }
-            .tool-card-split { grid-template-columns: 1fr; gap: 16px; }
-            .summary-bar { gap: 20px; }
         }
 
         @media (min-width: 1200px) {
@@ -688,50 +549,52 @@
         <div class="section-inner">
             <div class="hero-label">Private Briefing</div>
             <h1 class="hero-title">We built<br>the <em>map.</em></h1>
-            <p class="hero-sub">Tens of thousands of nodes &mdash; manufacturers, labs, cultivators, brands, distributors, pharmacies &mdash; spread across a growing web of jurisdictions. Heavy regulation. Constant rule changes. No shared infrastructure. We built it.</p>
+            <p class="hero-sub">Tens of thousands of nodes &mdash; manufacturers, labs, cultivators, brands, distributors, pharmacies, clinics &mdash; spread across a growing web of jurisdictions. Every one of them navigating fragmented supply chains where the regulations are heavy and the rules keep changing. No single system connects them. We built one.</p>
         </div>
 
-        <svg class="hero-watermark" viewBox="0 0 500 600" aria-hidden="true">
-            <!-- Port nodes -->
-            <circle cx="120" cy="80" r="5"/>
-            <circle cx="280" cy="55" r="6"/>
-            <circle cx="400" cy="95" r="4"/>
-            <circle cx="70" cy="200" r="4"/>
-            <circle cx="230" cy="180" r="7"/>
-            <circle cx="380" cy="190" r="5"/>
-            <circle cx="150" cy="320" r="5"/>
-            <circle cx="320" cy="290" r="6"/>
-            <circle cx="440" cy="340" r="4"/>
-            <circle cx="100" cy="430" r="4"/>
-            <circle cx="260" cy="450" r="5"/>
-            <circle cx="400" cy="470" r="4"/>
-            <circle cx="180" cy="540" r="4"/>
-            <circle cx="350" cy="550" r="3"/>
-            <!-- Primary trade routes -->
-            <path class="draw-path" d="M 120 80 Q 190 50 280 55" stroke-width="1.5"/>
-            <path class="draw-path" d="M 280 55 Q 345 60 400 95" stroke-width="1.3"/>
-            <path class="draw-path" d="M 120 80 Q 80 130 70 200" stroke-width="1.2"/>
-            <path class="draw-path" d="M 120 80 Q 165 120 230 180" stroke-width="1.8"/>
-            <path class="draw-path" d="M 280 55 Q 265 110 230 180" stroke-width="1.5"/>
-            <path class="draw-path" d="M 400 95 Q 400 140 380 190" stroke-width="1.2"/>
-            <path class="draw-path" d="M 380 190 Q 310 170 230 180" stroke-width="1.5"/>
-            <path class="draw-path" d="M 70 200 Q 95 255 150 320" stroke-width="1.2"/>
-            <path class="draw-path" d="M 230 180 Q 175 245 150 320" stroke-width="1.5"/>
-            <path class="draw-path" d="M 230 180 Q 285 230 320 290" stroke-width="1.8"/>
-            <path class="draw-path" d="M 380 190 Q 420 250 440 340" stroke-width="1"/>
-            <path class="draw-path" d="M 320 290 Q 385 305 440 340" stroke-width="1.2"/>
-            <path class="draw-path" d="M 150 320 Q 115 370 100 430" stroke-width="1.2"/>
-            <path class="draw-path" d="M 320 290 Q 295 365 260 450" stroke-width="1.5"/>
-            <path class="draw-path" d="M 440 340 Q 425 400 400 470" stroke-width="1"/>
-            <path class="draw-path" d="M 100 430 Q 170 445 260 450" stroke-width="1.2"/>
-            <path class="draw-path" d="M 260 450 Q 335 455 400 470" stroke-width="1"/>
-            <path class="draw-path" d="M 100 430 Q 135 480 180 540" stroke-width="1"/>
-            <path class="draw-path" d="M 260 450 Q 310 500 350 550" stroke-width="1"/>
-            <!-- Secondary/dashed channels -->
-            <path class="draw-path route-secondary" d="M 70 200 Q 145 175 230 180" stroke-width="0.8"/>
-            <path class="draw-path route-secondary" d="M 150 320 Q 230 295 320 290" stroke-width="0.8"/>
-            <path class="draw-path route-secondary" d="M 400 95 Q 420 185 380 190" stroke-width="0.8"/>
-            <path class="draw-path route-secondary" d="M 180 540 Q 265 540 350 550" stroke-width="0.8"/>
+        <svg class="hero-network" viewBox="0 0 400 520" aria-hidden="true">
+            <!-- Port nodes — supply chain hubs -->
+            <circle cx="65" cy="80" r="6"/>
+            <circle cx="190" cy="45" r="7"/>
+            <circle cx="330" cy="90" r="5"/>
+            <circle cx="50" cy="220" r="5"/>
+            <circle cx="200" cy="190" r="8"/>
+            <circle cx="340" cy="210" r="4"/>
+            <circle cx="90" cy="340" r="5"/>
+            <circle cx="280" cy="310" r="6"/>
+            <circle cx="160" cy="430" r="5"/>
+            <circle cx="320" cy="420" r="4"/>
+            <!-- Small waypoint nodes -->
+            <circle cx="130" cy="130" r="2.5"/>
+            <circle cx="260" cy="140" r="2.5"/>
+            <circle cx="150" cy="270" r="2.5"/>
+            <circle cx="350" cy="310" r="2"/>
+            <circle cx="70" cy="430" r="2"/>
+            <circle cx="240" cy="460" r="2.5"/>
+            <!-- Primary trade routes — thick, sweeping curves -->
+            <path class="draw-path" d="M 65 80 C 100 50, 150 40, 190 45" stroke-width="2"/>
+            <path class="draw-path" d="M 190 45 C 240 52, 290 65, 330 90" stroke-width="1.8"/>
+            <path class="draw-path" d="M 65 80 C 55 120, 48 170, 50 220" stroke-width="1.8"/>
+            <path class="draw-path" d="M 65 80 C 95 105, 140 150, 200 190" stroke-width="2.2"/>
+            <path class="draw-path" d="M 190 45 C 195 90, 198 140, 200 190" stroke-width="2"/>
+            <path class="draw-path" d="M 330 90 C 340 130, 342 170, 340 210" stroke-width="1.5"/>
+            <path class="draw-path" d="M 340 210 C 300 195, 250 190, 200 190" stroke-width="1.8"/>
+            <!-- Secondary routes — thinner, longer arcs -->
+            <path class="draw-path" d="M 50 220 C 60 260, 75 300, 90 340" stroke-width="1.2"/>
+            <path class="draw-path" d="M 200 190 C 170 240, 130 290, 90 340" stroke-width="1.5"/>
+            <path class="draw-path" d="M 200 190 C 230 230, 260 270, 280 310" stroke-width="2"/>
+            <path class="draw-path" d="M 340 210 C 330 250, 310 280, 280 310" stroke-width="1.3"/>
+            <path class="draw-path" d="M 90 340 C 110 370, 135 400, 160 430" stroke-width="1.5"/>
+            <path class="draw-path" d="M 280 310 C 300 350, 315 385, 320 420" stroke-width="1.3"/>
+            <path class="draw-path" d="M 280 310 C 240 360, 200 400, 160 430" stroke-width="1.5"/>
+            <!-- Cross routes — connecting distant hubs -->
+            <path class="draw-path" d="M 50 220 C 100 200, 150 195, 200 190" stroke-width="1"/>
+            <path class="draw-path" d="M 160 430 C 190 445, 220 455, 240 460" stroke-width="1"/>
+            <path class="draw-path" d="M 240 460 C 270 450, 300 440, 320 420" stroke-width="1"/>
+            <!-- Dashed secondary channels -->
+            <path class="draw-path" d="M 130 130 C 170 140, 220 140, 260 140" stroke-width="0.8" stroke-dasharray="6 4"/>
+            <path class="draw-path" d="M 150 270 C 200 275, 300 290, 350 310" stroke-width="0.8" stroke-dasharray="6 4"/>
+            <path class="draw-path" d="M 70 430 C 100 435, 130 432, 160 430" stroke-width="0.8" stroke-dasharray="6 4"/>
         </svg>
 
         <div class="scroll-cue">Scroll</div>
@@ -746,6 +609,37 @@
                 <p>Regulated ingredients cross borders governed by drug treaties, import permits, GMP standards, and market authorisations that change by jurisdiction. <strong>There is no single system connecting compliant supply to manufacturing to distribution.</strong> The harder the regulation, the worse the fragmentation.</p>
             </div>
 
+            <div class="card-grid" style="margin-top: 40px;">
+                <div class="card">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <div class="card-dot" style="margin-bottom: 0;"></div>
+                        <div class="card-heading">Brands</div>
+                    </div>
+                    <div class="card-text">Need compliant suppliers, licensed manufacturers, certified labs, reliable distributors, and pharmacy relationships. Can't verify any of it from a single system.</div>
+                </div>
+                <div class="card">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <div class="card-dot" style="margin-bottom: 0;"></div>
+                        <div class="card-heading">Manufacturers</div>
+                    </div>
+                    <div class="card-text">Need qualified suppliers, certified labs, approved cultivators, distribution partners, and brand contracts. Every relationship requires separate compliance paperwork.</div>
+                </div>
+                <div class="card">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <div class="card-dot" style="margin-bottom: 0;"></div>
+                        <div class="card-heading">Cultivators</div>
+                    </div>
+                    <div class="card-text">Need brand offtakes, manufacturer contracts, distributor access, and pharmacy channels. Each jurisdiction demands different certifications for the same product.</div>
+                </div>
+                <div class="card">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <div class="card-dot" style="margin-bottom: 0;"></div>
+                        <div class="card-heading">Labs &amp; Pharmacies</div>
+                    </div>
+                    <div class="card-text">Labs serve every node &mdash; manufacturers, brands, cultivators, importers. Pharmacies need product supply, clinic referrals, and distributor links. Everyone depends on them, nobody connects them.</div>
+                </div>
+            </div>
+
             <div class="domains">
                 <div class="domain-tag">Australia</div>
                 <div class="domain-tag">New Zealand</div>
@@ -755,37 +649,6 @@
                 <div class="domain-tag">United Kingdom</div>
                 <div class="domain-tag">South Africa</div>
                 <div class="domain-tag">United States (pending)</div>
-            </div>
-
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-dot"></div>
-                        <div class="card-heading">Brands</div>
-                    </div>
-                    <div class="card-text">Need compliant manufacturers, lab-tested supply, licensed distributors, and regulatory-cleared imports. Every jurisdiction has different rules for what they can sell and how.</div>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-dot"></div>
-                        <div class="card-heading">Manufacturers</div>
-                    </div>
-                    <div class="card-text">Need certified labs, qualified suppliers, licensed distributors, and compliant packaging and labelling. A single product crossing one border can require dozens of documents.</div>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-dot"></div>
-                        <div class="card-heading">Cultivators</div>
-                    </div>
-                    <div class="card-text">Need brands to buy their product, manufacturers to process it, distributors to move it, and export permits for every jurisdiction. Most have no visibility into who needs what.</div>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-dot"></div>
-                        <div class="card-heading">Labs &amp; Pharmacies</div>
-                    </div>
-                    <div class="card-text">Labs need manufacturer samples flowing. Pharmacies need product catalogs. Clinics need prescribing pathways. All of it is jurisdiction-dependent and none of it is connected.</div>
-                </div>
             </div>
         </div>
     </section>
@@ -797,15 +660,121 @@
         </div>
     </section>
 
+    <!-- ═══ THE PRODUCT ═══ -->
+    <section class="section">
+        <div class="section-inner">
+            <div class="section-label">The product</div>
+            <h2 class="section-title">A free compliance engine.<br>A paid toolkit on top.</h2>
+            <div class="section-body">
+                <p>APro is a GMP compliance platform for regulated cannabis operators. The manufacturing system is free &mdash; every operator gets a production-ready engine that handles the full order-to-dispatch lifecycle. <strong>Once they're on the platform, paid tools monetise everything around them.</strong></p>
+            </div>
+
+            <h3 class="future-markets-header">The free engine.</h3>
+            <p class="future-markets-sub" style="margin-bottom: 24px;">Everything an operator needs to run a compliant manufacturing operation. Given away to eliminate every adoption barrier.</p>
+
+            <div class="check-list">
+                <div class="check-item">
+                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
+                    <span><strong>Electronic batch records</strong> &mdash; digital manufacturing workflows with step-by-step operator sign-offs. No paper.</span>
+                </div>
+                <div class="check-item">
+                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
+                    <span><strong>Automatic audit trail</strong> &mdash; every action captured and logged. Audit-ready from day one.</span>
+                </div>
+                <div class="check-item">
+                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
+                    <span><strong>Order-to-dispatch</strong> &mdash; full production pipeline with quality gates, accounting gates, and kanban scheduling.</span>
+                </div>
+                <div class="check-item">
+                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
+                    <span><strong>Multi-jurisdiction</strong> &mdash; one system across every regulatory framework. Add a new market without rebuilding.</span>
+                </div>
+                <div class="check-item">
+                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
+                    <span><strong>Supplier &amp; inventory</strong> &mdash; qualified supplier management, real-time stock tracking, full traceability.</span>
+                </div>
+            </div>
+
+            <h3 class="future-markets-header" style="margin-top: 56px;">The paid toolkit.</h3>
+            <p class="future-markets-sub" style="margin-bottom: 24px;">Services that only work because the network exists underneath. Each one recurring, high-margin, and impossible without the platform.</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <div class="card-dot" style="margin-bottom: 0;"></div>
+                        <div class="card-heading">Regulatory Intelligence</div>
+                    </div>
+                    <div class="card-text"><strong>Without:</strong> Manually tracking regulation changes across every jurisdiction. Hiring consultants per market. Finding out about rule changes after non-compliance.<br><strong>With:</strong> 207 deterministic checks. Real-time regulatory monitoring across all jurisdictions. Automated gap analysis flags what changed, what's affected, and what to do &mdash; before it becomes a problem.</div>
+                </div>
+                <div class="card">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <div class="card-dot" style="margin-bottom: 0;"></div>
+                        <div class="card-heading">Labelling</div>
+                    </div>
+                    <div class="card-text"><strong>Without:</strong> Researching label requirements per jurisdiction manually. Hiring compliance consultants for each market. Weeks per label per market. One regulation change invalidates everything.<br><strong>With:</strong> Single product setup generates compliant labels for every target jurisdiction. Regulation changes auto-update. Hours instead of weeks. One system, every market.</div>
+                </div>
+                <div class="card">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <div class="card-dot" style="margin-bottom: 0;"></div>
+                        <div class="card-heading">Translation</div>
+                    </div>
+                    <div class="card-text"><strong>Without:</strong> Hiring translators per document per jurisdiction. Weeks per regulatory submission. Inconsistent terminology across markets. Costly mistakes on technical documents.<br><strong>With:</strong> Jurisdiction-specific regulatory translation with certified terminology. Certificates of analysis, regulatory filings, marketing materials &mdash; all handled. Bundled into market-entry packages.</div>
+                </div>
+                <div class="card">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <div class="card-dot" style="margin-bottom: 0;"></div>
+                        <div class="card-heading">Network &amp; Visibility</div>
+                    </div>
+                    <div class="card-text"><strong>Without:</strong> Finding compliant supply partners manually. Cold outreach. No way to verify a partner's compliance status. Weeks of due diligence per new relationship.<br><strong>With:</strong> Instant access to verified, pre-qualified partners. Compliance status visible on the platform. Connections facilitated and tracked. Due diligence that took weeks becomes a search.</div>
+                </div>
+                <div class="card">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <div class="card-dot" style="margin-bottom: 0;"></div>
+                        <div class="card-heading">AuditBot</div>
+                    </div>
+                    <div class="card-text"><strong>Without:</strong> Weeks of preparation before every audit. Physical binder assembly. Chasing documents from every department. External consultants at $300+/hr. Findings discovered during the audit, not before.<br><strong>With:</strong> Continuous audit readiness. 115 checks across 10 compliance domains. Gaps identified before the auditor arrives. Consultant costs eliminated. Prep time drops from weeks to zero.</div>
+                </div>
+            </div>
+
+            <div class="split">
+                <div class="split-col">
+                    <div class="split-heading" style="font-size: 1.8rem; margin-bottom: 20px;">Without APro</div>
+                    <div class="split-text"><strong>61 hours per week</strong> on compliance and supply chain administration. Manual batch records. Paper audit trails. Spreadsheet inventory. Physical supplier qualification binders. Everything duplicated for every jurisdiction.</div>
+                </div>
+                <div class="split-col">
+                    <div class="split-heading" style="font-size: 1.8rem; margin-bottom: 20px;">With APro</div>
+                    <div class="split-text"><strong>15 hours per week.</strong> Electronic batch records auto-generate. Audit trail is automatic. Inventory updates in real time. Suppliers pre-qualified in the system. One platform, every jurisdiction.</div>
+                </div>
+            </div>
+
+            <div class="stats-panel" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="stat">
+                    <div class="stat-number">70%</div>
+                    <div class="stat-label">Compliance admin time reduced</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">7&rarr;1</div>
+                    <div class="stat-label">Compliance systems replaced</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Weeks&rarr;0</div>
+                    <div class="stat-label">Audit prep time</div>
+                </div>
+            </div>
+
+            <div class="section-body" style="margin-top: 40px;">
+                <p><strong>The model:</strong> Free removes every adoption barrier. Once an operator's batch records, audit trail, and quality history live on the platform, switching cost is enormous. Paid tools compound on the network &mdash; the more operators join, the more valuable every service becomes.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- ═══ THE NETWORK ═══ -->
     <section class="section">
         <div class="section-inner">
             <div class="section-label">The network</div>
-            <h2 class="section-title">11,000+ operators mapped today.<br>The map doesn&rsquo;t stop here.</h2>
+            <h2 class="section-title">11,000+ operators mapped today.<br>The map doesn't stop here.</h2>
             <div class="section-body">
-                <p>We mapped the licensed cannabis supply chain across seven jurisdictions. Manufacturers, cultivators, labs, distributors, pharmacies, clinics &mdash; every node that touches a regulated product. <strong>The total addressable network is larger than anyone has quantified. And none of them have purpose-built compliance tools.</strong></p>
-                <br>
-                <p>France, Spain, Poland, the Czech Republic, Morocco, Japan, and South Korea are all formalising regulated cannabis frameworks. The map is expanding.</p>
+                <p>We've mapped the licensed cannabis supply chain across seven jurisdictions so far &mdash; every node that touches a regulated product. But by 2030, <strong>at least seven more jurisdictions are expected to formalise regulated frameworks: France, Spain, Poland, Czech Republic, Morocco, Japan, and South Korea.</strong> Each new jurisdiction adds thousands of nodes. The network we're building isn't a fixed map &mdash; it's a compounding one.</p>
             </div>
 
             <div class="stats-panel">
@@ -826,7 +795,10 @@
                     <div class="stat-label">Jurisdictions by 2030</div>
                 </div>
             </div>
-            <div class="stats-footnote">$8B+ = AU $290M + CA $3.7B + DE $2.2B + TH $1.7B + UK $330M + SA $315M + NZ ~$6M</div>
+
+            <div style="text-align: center; margin-top: -32px; margin-bottom: 48px; font-size: 0.82rem; color: var(--text-muted); line-height: 1.65;">
+                $8B+ combined (current 7): AU $290M + CA $3.7B + DE $2.2B + TH $1.7B + UK $330M + SA $315M + NZ ~$6M &asymp; $8.5B USD. Next wave adds $9B+ by 2030.
+            </div>
 
             <div class="country-grid">
                 <div class="country-card">
@@ -873,134 +845,76 @@
                 </div>
             </div>
 
-            <!-- The next wave -->
-            <div class="next-wave-label">The next wave.</div>
-            <div class="next-wave-sub">Seven more jurisdictions formalising regulated cannabis frameworks. The operators are already there &mdash; the infrastructure isn&rsquo;t.</div>
+            <h3 class="future-markets-header">The next wave.</h3>
+            <p class="future-markets-sub">Seven more jurisdictions formalising regulated frameworks between now and 2030. Each one adds thousands of nodes to the map &mdash; and every node needs compliance infrastructure.</p>
 
-            <div class="summary-bar">
-                <div class="summary-stat"><strong>+7</strong> jurisdictions formalising</div>
-                <div class="summary-stat"><strong>5,000+</strong> operators already licensed</div>
-                <div class="summary-stat"><strong>$9B+</strong> projected by 2030</div>
+            <div class="stats-panel" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="stat">
+                    <div class="stat-number">+7</div>
+                    <div class="stat-label">Jurisdictions formalising</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5,000+</div>
+                    <div class="stat-label">Operators already licensed</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">$9B+</div>
+                    <div class="stat-label">Projected market value by 2030</div>
+                </div>
             </div>
 
-            <div class="next-wave-grid">
-                <div class="next-wave-card">
-                    <div class="country-name">France <span class="timing-badge">Apr 2026</span></div>
+            <div class="country-grid">
+                <div class="country-card">
+                    <div class="country-timing">Regulatory: Apr 2026</div>
+                    <div class="country-name">France</div>
                     <div class="country-metric"><strong>&euro;806M</strong> projected by 2035</div>
-                    <div class="country-metric">Medical regime permanent 1 April 2026. Zero domestic cultivators &mdash; 100% imports needing traceability.</div>
+                    <div class="country-metric"><strong>68M</strong> population</div>
+                    <div class="country-metric">Permanent medical regime launches April 2026. Zero domestic GMP cultivators &mdash; 100% imports. Every gram needs full traceability.</div>
                 </div>
-                <div class="next-wave-card">
-                    <div class="country-name">Spain <span class="timing-badge">Q2 2026</span></div>
-                    <div class="country-metric"><strong>&euro;147M</strong> invested</div>
-                    <div class="country-metric">Royal Decree 903/2025. First legal sales expected Q2 2026. EU-GMP mandatory.</div>
+                <div class="country-card">
+                    <div class="country-timing">Regulatory: Q2 2026</div>
+                    <div class="country-name">Spain</div>
+                    <div class="country-metric"><strong>&euro;1.15B</strong> projected by 2030</div>
+                    <div class="country-metric"><strong>70+</strong> active companies</div>
+                    <div class="country-metric">Royal Decree passed Oct 2025. EU-GMP mandatory. Hospital-only dispensing. 4 licensed cultivators, more incoming.</div>
                 </div>
-                <div class="next-wave-card">
-                    <div class="country-name">Czech Republic <span class="timing-badge">2026</span></div>
+                <div class="country-card">
+                    <div class="country-timing">Medical: active</div>
+                    <div class="country-name">Poland</div>
+                    <div class="country-metric"><strong>&euro;72M</strong> market (2025)</div>
+                    <div class="country-metric"><strong>105K</strong> patients</div>
+                    <div class="country-metric">100% import-dependent. 537K prescriptions in 2025. Import limit tripled to 20,000 kg. Every gram crosses a border.</div>
+                </div>
+                <div class="country-card">
+                    <div class="country-timing">Adult-use: Jan 2026</div>
+                    <div class="country-name">Czech Republic</div>
                     <div class="country-metric"><strong>&euro;400M&ndash;1B</strong> projected</div>
-                    <div class="country-metric">Adult-use legalised Jan 2026. First in Central Europe. Retail dispensaries 2027&ndash;2028.</div>
+                    <div class="country-metric"><strong>10&ndash;12</strong> EU-GMP cultivators</div>
+                    <div class="country-metric">First Central European country to legalise adult-use. Retail dispensaries targeted 2027&ndash;2028. Already exporting to Germany.</div>
                 </div>
-                <div class="next-wave-card">
-                    <div class="country-name">Morocco <span class="timing-badge">Live</span></div>
-                    <div class="country-metric"><strong>$885M</strong> by 2030</div>
-                    <div class="country-metric">5,000+ licensed farmers. Mandatory traceability. First exports Feb 2025.</div>
+                <div class="country-card">
+                    <div class="country-timing">Operational: exports 2025</div>
+                    <div class="country-name">Morocco</div>
+                    <div class="country-metric"><strong>$885M</strong> projected by 2030</div>
+                    <div class="country-metric"><strong>5,000+</strong> licensed farmers</div>
+                    <div class="country-metric">World's largest traditional producer formalising. 250 cooperatives. Mandatory seed-to-sale traceability. 5,400+ government inspections in 2025.</div>
                 </div>
-                <div class="next-wave-card">
-                    <div class="country-name">Poland <span class="timing-badge">Growing</span></div>
-                    <div class="country-metric"><strong>&euro;72M</strong> market</div>
-                    <div class="country-metric">105K patients. 100% import-dependent. Import limit tripled to 20,000 kg.</div>
-                </div>
-                <div class="next-wave-card">
-                    <div class="country-name">Japan <span class="timing-badge">Dec 2024</span></div>
+                <div class="country-card">
+                    <div class="country-timing">Regulatory: Mar 2025</div>
+                    <div class="country-name">Japan</div>
                     <div class="country-metric"><strong>$2.6B</strong> projected by 2030</div>
-                    <div class="country-metric">Cannabis Act amended Dec 2024. Pharma-only. 91% CAGR.</div>
+                    <div class="country-metric"><strong>91%</strong> CAGR (fastest APAC)</div>
+                    <div class="country-metric">76-year cannabis ban lifted Dec 2024. Pharma-only pathway. Licensing live. Brand-new compliance framework &mdash; every operator starts from zero.</div>
                 </div>
-                <div class="next-wave-card">
-                    <div class="country-name">South Korea <span class="timing-badge">Medical</span></div>
+                <div class="country-card">
+                    <div class="country-timing">Medical: since 2019</div>
+                    <div class="country-name">South Korea</div>
                     <div class="country-metric"><strong>$3.6B</strong> projected by 2030</div>
-                    <div class="country-metric">Medical since 2019. Import-only. Centralised approval.</div>
+                    <div class="country-metric"><strong>58%</strong> CAGR</div>
+                    <div class="country-metric">First East Asian country to legalise medical. Import-only, centralised approval. Zero tolerance for supply chain gaps. Insurance expanding 2025.</div>
                 </div>
             </div>
 
-            <div class="stats-footnote">Next wave adds $9B+ by 2030.</div>
-
-            <!-- Expanded Without / With -->
-            <div class="summary-bar" style="margin-top: 64px;">
-                <div class="summary-stat"><strong>70%</strong> time reduction</div>
-                <div class="summary-stat"><strong>7&rarr;1</strong> systems</div>
-                <div class="summary-stat"><strong>Weeks&rarr;0</strong> audit prep</div>
-            </div>
-
-            <div class="section-body" style="margin: 24px 0 8px;">
-                <p>The ERP is the gateway. Each paid tool compounds the savings.</p>
-            </div>
-
-            <div class="tool-cards">
-                <div class="tool-card">
-                    <div class="tool-card-name">Regulatory Intelligence</div>
-                    <div class="tool-card-split">
-                        <div>
-                            <div class="tool-col-heading">Without</div>
-                            <div class="tool-col-text">Manual monitoring across jurisdictions. Regulatory changes discovered by accident or word of mouth. Compliance gaps found during audits.</div>
-                        </div>
-                        <div>
-                            <div class="tool-col-heading with-heading">With APro</div>
-                            <div class="tool-col-text">207 deterministic checks across 6 domains. Real-time monitoring. Issues flagged before they become findings.</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-card-name">Labelling</div>
-                    <div class="tool-card-split">
-                        <div>
-                            <div class="tool-col-heading">Without</div>
-                            <div class="tool-col-text">Design and approve labels for every product in every market. Different rules, different languages, different formats. Start from scratch each time.</div>
-                        </div>
-                        <div>
-                            <div class="tool-col-heading with-heading">With APro</div>
-                            <div class="tool-col-text">Single setup, compliant labels generated for every jurisdiction. Regulatory fields auto-populated. One change propagates everywhere.</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-card-name">Translation</div>
-                    <div class="tool-card-split">
-                        <div>
-                            <div class="tool-col-heading">Without</div>
-                            <div class="tool-col-text">Manual translation of certificates of analysis, regulatory docs, marketing materials. Each jurisdiction requires certified regulatory-grade translation.</div>
-                        </div>
-                        <div>
-                            <div class="tool-col-heading with-heading">With APro</div>
-                            <div class="tool-col-text">Certified regulatory translation built into the platform. Documents translated with jurisdiction-specific terminology. Audit-ready from day one.</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-card-name">Network &amp; Visibility</div>
-                    <div class="tool-card-split">
-                        <div>
-                            <div class="tool-col-heading">Without</div>
-                            <div class="tool-col-text">Find compliant supply partners by word of mouth, trade shows, and cold calls. No way to verify partner certifications before engaging.</div>
-                        </div>
-                        <div>
-                            <div class="tool-col-heading with-heading">With APro</div>
-                            <div class="tool-col-text">Verified partner search across the network. Certifications, capacity, compliance status visible. Suppliers found in minutes, not months.</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-card-name">AuditBot</div>
-                    <div class="tool-card-split">
-                        <div>
-                            <div class="tool-col-heading">Without</div>
-                            <div class="tool-col-text">Weeks of preparation for GMP audits. Manual gap analysis. Paper checklists. Consultants at $500/hour.</div>
-                        </div>
-                        <div>
-                            <div class="tool-col-heading with-heading">With APro</div>
-                            <div class="tool-col-text">115 checks across 10 audit domains. Automated gap analysis. Improvement plan generated. Zero prep time.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -1018,21 +932,21 @@
                     <div class="flywheel-num">1</div>
                     <div class="flywheel-content">
                         <div class="flywheel-heading">Free ERP removes every adoption barrier.</div>
-                        <div class="flywheel-text">GMP compliance is mandatory. Giving it away removes every adoption barrier. Once their batch records, audit trail, and quality history live here, switching cost is enormous.</div>
+                        <div class="flywheel-text">GMP compliance is mandatory. Giving it away means no cost objection, no procurement cycle, no competitor comparison. Once their batch records, audit trail, and quality history live here, switching cost is enormous.</div>
                     </div>
                 </div>
                 <div class="flywheel-step">
                     <div class="flywheel-num">2</div>
                     <div class="flywheel-content">
                         <div class="flywheel-heading">Brands and labs seed the network.</div>
-                        <div class="flywheel-text">Brands need compliant supply. Labs need to be findable. Both join for immediate value &mdash; and each one pulls the next node in. 50+ brand contacts in Australia alone.</div>
+                        <div class="flywheel-text">Brands need compliant supply. Labs need to be findable. Both join for immediate value &mdash; find verified partners or get found by them. The most connected, most numerous, lowest-barrier nodes come first.</div>
                     </div>
                 </div>
                 <div class="flywheel-step">
                     <div class="flywheel-num">3</div>
                     <div class="flywheel-content">
                         <div class="flywheel-heading">Each node pulls the next ring in.</div>
-                        <div class="flywheel-text">Brands pull manufacturers and cultivators. Manufacturers pull labs, suppliers, and distributors. Distributors pull pharmacies. The network grows in rings, not a chain.</div>
+                        <div class="flywheel-text">Brands pull in manufacturers and cultivators. Manufacturers pull in distributors. Distributors connect to pharmacies. Every new node adds connections, and every connection makes the next signup easier.</div>
                     </div>
                 </div>
                 <div class="flywheel-step">
@@ -1068,43 +982,43 @@
 
             <div class="card-grid">
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-dot"></div>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <div class="card-dot" style="margin-bottom: 0;"></div>
                         <div class="card-heading">Labelling</div>
                     </div>
                     <div class="card-text">Every product in every market needs compliant labels. Different jurisdictions, different rules, different languages. Per-label or per-market subscription. High volume, ongoing.</div>
                 </div>
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-dot"></div>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <div class="card-dot" style="margin-bottom: 0;"></div>
                         <div class="card-heading">Translation</div>
                     </div>
                     <div class="card-text">Regulatory documents, certificates of analysis, marketing materials &mdash; all need jurisdiction-specific translation. Per-document or bundled into market-entry packages.</div>
                 </div>
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-dot"></div>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <div class="card-dot" style="margin-bottom: 0;"></div>
                         <div class="card-heading">Regulatory intelligence</div>
                     </div>
                     <div class="card-text">Laws change. Markets shift. Operators pay to know what changed this month in Germany, Thailand, or Australia. 207 deterministic checks. Continuous subscription, high retention.</div>
                 </div>
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-dot"></div>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <div class="card-dot" style="margin-bottom: 0;"></div>
                         <div class="card-heading">Network marketplace</div>
                     </div>
-                    <div class="card-text">Suppliers pay for verified listings and visibility. Manufacturers pay for introductions to compliant supply in new markets. The platform takes a cut of every connection it facilitates.</div>
+                    <div class="card-text">Suppliers pay for verified listings and visibility. Buyers pay for introductions to compliant supply in new markets. The platform takes a cut of every connection it facilitates.</div>
                 </div>
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-dot"></div>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <div class="card-dot" style="margin-bottom: 0;"></div>
                         <div class="card-heading">Strategic partner access</div>
                     </div>
                     <div class="card-text">Major players &mdash; genetics companies, equipment suppliers, international brands &mdash; pay premium rates to reach the entire network. One integration, every market.</div>
                 </div>
                 <div class="card">
-                    <div class="card-header">
-                        <div class="card-dot"></div>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <div class="card-dot" style="margin-bottom: 0;"></div>
                         <div class="card-heading">Exclusivity</div>
                     </div>
                     <div class="card-text">Lock a region, a category, or a product type. The only certified lab in Thailand on the platform. The only cold chain provider in Germany. Scarcity compounds value.</div>
@@ -1123,7 +1037,7 @@
             <div class="section-label">The gateway</div>
             <h2 class="section-title">The compliance engine is built.<br>It's running.</h2>
             <div class="section-body">
-                <p>Not a mockup. Not a prototype. A production-ready GMP manufacturing system that handles the full order-to-dispatch lifecycle. <strong>This is the loss leader that gets every operator onto the network.</strong></p>
+                <p>Not a mockup. Not a prototype. A production-ready GMP manufacturing system deployed on AWS &mdash; Docker containerised, multi-region infrastructure prepared. <strong>This is already running.</strong></p>
             </div>
 
             <div class="stats-panel">
@@ -1144,33 +1058,6 @@
                     <div class="stat-label">Target markets</div>
                 </div>
             </div>
-
-            <div class="check-list">
-                <div class="check-item">
-                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Electronic batch records</strong> &mdash; step-by-step operator workflows with digital sign-offs.</span>
-                </div>
-                <div class="check-item">
-                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Full audit trail</strong> &mdash; every action logged. 21 CFR Part 11 compliant from day one.</span>
-                </div>
-                <div class="check-item">
-                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Order-to-dispatch pipeline</strong> &mdash; quality gates, accounting gates, kanban workflow.</span>
-                </div>
-                <div class="check-item">
-                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Multi-jurisdiction architecture</strong> &mdash; built for global from the foundation up.</span>
-                </div>
-                <div class="check-item">
-                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Intelligence engine</strong> &mdash; 207 deterministic compliance checks across 6 regulatory domains. No AI, no guesswork.</span>
-                </div>
-                <div class="check-item">
-                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>AWS deployment ready</strong> &mdash; Docker containerised, ECR hosted, multi-region infrastructure prepared.</span>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -1185,31 +1072,31 @@
     <section class="section">
         <div class="section-inner">
             <div class="section-label">The roadmap</div>
-            <h2 class="section-title">Three markets in 2026.</h2>
+            <h2 class="section-title">Three jurisdictions in 2026.</h2>
             <div class="section-body">
                 <p>The infrastructure is built. Deployment is staged by regulatory priority and live contacts on the ground.</p>
             </div>
 
             <div class="flywheel">
                 <div class="flywheel-step">
-                    <div class="flywheel-num">Q2</div>
+                    <div class="flywheel-num">Apr</div>
                     <div class="flywheel-content">
-                        <div class="flywheel-heading">April 2026 &mdash; Australia go-live.</div>
-                        <div class="flywheel-text">First market. Live contacts across 180+ operators &mdash; manufacturers, labs, cultivators, and 500+ pharmacies. A$446M market growing 78% CAGR.</div>
+                        <div class="flywheel-heading">Australia &mdash; first market.</div>
+                        <div class="flywheel-text">Live contacts across 180+ operators &mdash; manufacturers, labs, cultivators, and 500+ pharmacies. A$446M market growing 78% CAGR. We go live here first.</div>
                     </div>
                 </div>
                 <div class="flywheel-step">
-                    <div class="flywheel-num">Q2</div>
+                    <div class="flywheel-num">May</div>
                     <div class="flywheel-content">
-                        <div class="flywheel-heading">May&ndash;June 2026 &mdash; Thailand go-live.</div>
-                        <div class="flywheel-text">~2,000 aspiring producers in a $1.7B market, fewer than 10 with EU-GMP certification. The operators who want to export need exactly what we built. Two-way value: Thai product flowing out, international seed genetics flowing in.</div>
+                        <div class="flywheel-heading">Thailand &mdash; two-way opportunity.</div>
+                        <div class="flywheel-text">~2,000 aspiring primary producers in a $1.7B market pivoting to medical-only compliance. Fewer than 10 are on track for EU-GMP certification &mdash; and we know them. Seed suppliers want to sell genetics to these producers and buy back compliant product. The platform connects both directions.</div>
                     </div>
                 </div>
                 <div class="flywheel-step">
-                    <div class="flywheel-num">Q3</div>
+                    <div class="flywheel-num">Jul</div>
                     <div class="flywheel-content">
-                        <div class="flywheel-heading">July 2026 &mdash; Germany go-live.</div>
-                        <div class="flywheel-text">Europe's largest medical cannabis market. The full ecosystem &mdash; manufacturers, pharmacies, distributors, clinics, and 368+ cannabis clubs. &euro;2B and growing. 900,000+ patients. Import quota hit 192.5 tonnes in 2025.</div>
+                        <div class="flywheel-heading">Germany &mdash; Europe's largest.</div>
+                        <div class="flywheel-text">A &euro;2B market and growing. 900,000+ patients driving demand through 2,500+ operators &mdash; manufacturers, pharmacies, distributors, clinics, and 368 cannabis clubs. Import quota hit 192.5 tonnes in 2025 and still rising. Every node in the chain needs compliance infrastructure.</div>
                     </div>
                 </div>
             </div>
@@ -1217,11 +1104,11 @@
             <div class="split">
                 <div class="split-col">
                     <div class="split-heading">Year 1.</div>
-                    <div class="split-text"><strong>200 nodes across 3 jurisdictions.</strong> First recurring revenue from paid tools and node visibility. Brands and labs seed the network, pulling manufacturers and cultivators onto the platform. The network seeds itself.</div>
+                    <div class="split-text"><strong>200 nodes across 3 jurisdictions.</strong> First recurring revenue from paid tools and node visibility. Brands and labs seed the network, each pulling the next ring of nodes onto the platform. The network compounds.</div>
                 </div>
                 <div class="split-col">
                     <div class="split-heading">Year 2.</div>
-                    <div class="split-text"><strong>1,000+ nodes across expanding jurisdictions.</strong> Six revenue layers active. France, Spain, Morocco, Japan, South Korea, Poland, Czech Republic entering the map. The platform knows which suppliers serve which markets, what's compliant where, which routes work. <strong>That intelligence is the product.</strong></div>
+                    <div class="split-text"><strong>1,000+ nodes across expanding jurisdictions.</strong> Six revenue layers active. New markets opening &mdash; France, Spain, Poland, Czech Republic, Morocco, Japan, South Korea. The platform knows which suppliers serve which markets, what's compliant where, which routes work. <strong>That intelligence is the product.</strong></div>
                 </div>
             </div>
         </div>
@@ -1241,11 +1128,11 @@
             <div class="split">
                 <div class="split-col">
                     <div class="split-heading">Before federal.</div>
-                    <div class="split-text">Build the network across existing and emerging markets. <strong>Each company on the platform is a node that compounds in value.</strong> Contacts are live. Infrastructure is built. Go-live is weeks away, not years.</div>
+                    <div class="split-text">Build the network across the first wave of jurisdictions. <strong>Each company on the platform is a node that compounds in value.</strong> Contacts are live. Infrastructure is built. Go-live is weeks away, not years.</div>
                 </div>
                 <div class="split-col">
                     <div class="split-heading">After federal.</div>
-                    <div class="split-text">The US opens and every international player scrambles for compliant infrastructure. <strong>We're already running across multiple jurisdictions. They come to us.</strong></div>
+                    <div class="split-text">The US opens and every international player scrambles for compliant infrastructure. <strong>We're already running across multiple jurisdictions with tens of thousands of nodes mapped. They come to us.</strong></div>
                 </div>
             </div>
         </div>
@@ -1255,7 +1142,7 @@
     <section id="cta" class="section">
         <div class="section-inner">
             <h2 class="cta-title">The map is being drawn.<br>Right now.</h2>
-            <div class="cta-body">The gateway is built. The network is forming. Tens of thousands of operators across a growing web of jurisdictions. The timing is closing.</div>
+            <div class="cta-body">The gateway is built. The network is forming. Tens of thousands of nodes across a growing map of jurisdictions. The timing is closing.</div>
 
             <div class="badger-mark" title="We eat obstacles for breakfast.">
                 <svg viewBox="0 0 100 52" aria-hidden="true">
@@ -1286,7 +1173,7 @@
 
         document.querySelectorAll('.section-inner').forEach(el => observer.observe(el));
 
-        // SVG draw-on (hero watermark)
+        // SVG draw-on (hero network)
         const drawPaths = document.querySelectorAll('.draw-path');
 
         drawPaths.forEach(path => {
