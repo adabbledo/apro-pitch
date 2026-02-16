@@ -251,6 +251,33 @@
             line-height: 1.65;
         }
 
+        .card-purpose {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 0.88rem;
+            color: var(--green);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .card-pricing {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-mid);
+            background: var(--bg-alt);
+            padding: 4px 12px;
+            border-radius: 100px;
+            margin-bottom: 14px;
+            border: 1px solid var(--border-light);
+        }
+
+        .card-pricing + .card-pricing {
+            margin-left: 6px;
+        }
+
         /* ═══ STATS PANEL ═══ */
         .stats-panel {
             display: grid;
@@ -702,8 +729,19 @@
                 <div class="card">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
                         <div class="card-dot" style="margin-bottom: 0;"></div>
+                        <div class="card-heading">AuditBot</div>
+                    </div>
+                    <div class="card-purpose">Audit-ready every day, not just audit day.</div>
+                    <div class="card-pricing">Est. $1,000&ndash;2,000/month</div>
+                    <div class="card-text"><strong>Without:</strong> Weeks of preparation before every audit. Physical binder assembly. Chasing documents from every department. External consultants at $300+/hr. Findings discovered during the audit, not before.<br><strong>With:</strong> Continuous audit readiness. 115 checks across 10 compliance domains. Gaps identified before the auditor arrives. Consultant costs eliminated. Prep time drops from weeks to zero.</div>
+                </div>
+                <div class="card">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <div class="card-dot" style="margin-bottom: 0;"></div>
                         <div class="card-heading">Regulatory Intelligence</div>
                     </div>
+                    <div class="card-purpose">Know what changed before it costs you.</div>
+                    <div class="card-pricing">Est. $1,500&ndash;2,500/month</div>
                     <div class="card-text"><strong>Without:</strong> Manually tracking regulation changes across every jurisdiction. Hiring consultants per market. Finding out about rule changes after non-compliance.<br><strong>With:</strong> 207 deterministic checks. Real-time regulatory monitoring across all jurisdictions. Automated gap analysis flags what changed, what's affected, and what to do &mdash; before it becomes a problem.</div>
                 </div>
                 <div class="card">
@@ -711,6 +749,8 @@
                         <div class="card-dot" style="margin-bottom: 0;"></div>
                         <div class="card-heading">Labelling</div>
                     </div>
+                    <div class="card-purpose">One product setup, every market's label.</div>
+                    <div class="card-pricing">Est. $500&ndash;1,500/month</div>
                     <div class="card-text"><strong>Without:</strong> Researching label requirements per jurisdiction manually. Hiring compliance consultants for each market. Weeks per label per market. One regulation change invalidates everything.<br><strong>With:</strong> Single product setup generates compliant labels for every target jurisdiction. Regulation changes auto-update. Hours instead of weeks. One system, every market.</div>
                 </div>
                 <div class="card">
@@ -718,6 +758,8 @@
                         <div class="card-dot" style="margin-bottom: 0;"></div>
                         <div class="card-heading">Translation</div>
                     </div>
+                    <div class="card-purpose">Regulatory-grade documents in every language.</div>
+                    <div class="card-pricing">Est. $1,000&ndash;2,000/month</div>
                     <div class="card-text"><strong>Without:</strong> Hiring translators per document per jurisdiction. Weeks per regulatory submission. Inconsistent terminology across markets. Costly mistakes on technical documents.<br><strong>With:</strong> Jurisdiction-specific regulatory translation with certified terminology. Certificates of analysis, regulatory filings, marketing materials &mdash; all handled. Bundled into market-entry packages.</div>
                 </div>
                 <div class="card">
@@ -725,14 +767,10 @@
                         <div class="card-dot" style="margin-bottom: 0;"></div>
                         <div class="card-heading">Network &amp; Visibility</div>
                     </div>
+                    <div class="card-purpose">Find verified partners, skip the due diligence.</div>
+                    <div class="card-pricing">Local: Est. $500&ndash;1,000/mo</div>
+                    <div class="card-pricing">International: Est. $2,000&ndash;3,500/mo</div>
                     <div class="card-text"><strong>Without:</strong> Finding compliant supply partners manually. Cold outreach. No way to verify a partner's compliance status. Weeks of due diligence per new relationship.<br><strong>With:</strong> Instant access to verified, pre-qualified partners. Compliance status visible on the platform. Connections facilitated and tracked. Due diligence that took weeks becomes a search.</div>
-                </div>
-                <div class="card">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                        <div class="card-dot" style="margin-bottom: 0;"></div>
-                        <div class="card-heading">AuditBot</div>
-                    </div>
-                    <div class="card-text"><strong>Without:</strong> Weeks of preparation before every audit. Physical binder assembly. Chasing documents from every department. External consultants at $300+/hr. Findings discovered during the audit, not before.<br><strong>With:</strong> Continuous audit readiness. 115 checks across 10 compliance domains. Gaps identified before the auditor arrives. Consultant costs eliminated. Prep time drops from weeks to zero.</div>
                 </div>
             </div>
 
