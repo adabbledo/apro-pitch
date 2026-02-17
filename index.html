@@ -560,6 +560,7 @@
             .split { grid-template-columns: 1fr; gap: 32px; }
             .stats-panel { grid-template-columns: 1fr 1fr; gap: 32px 16px; }
             .country-grid { grid-template-columns: 1fr 1fr; }
+            .card-grid[style*="repeat(3"] { grid-template-columns: 1fr 1fr !important; }
             .hero-network { display: none; }
             .scroll-cue { left: 24px; }
         }
@@ -691,50 +692,36 @@
     <section class="section">
         <div class="section-inner">
             <div class="section-label">The product</div>
-            <h2 class="section-title">A free compliance engine.<br>A paid toolkit on top.</h2>
+            <h2 class="section-title">One product audits the<br>entire supply chain.</h2>
             <div class="section-body">
-                <p>APro is a GMP compliance platform for regulated cannabis operators. The manufacturing system is free &mdash; every operator gets a production-ready engine that handles the full order-to-dispatch lifecycle. <strong>Once they're on the platform, paid tools monetise everything around them.</strong></p>
+                <p>APro is a GMP compliance platform for regulated cannabis operators. <strong>AuditBot is the hero product</strong> &mdash; point it at any node in the supply chain and get a complete compliance health report. Manufacturers, labs, brands, cultivators, distributors, pharmacies. Every node type has compliance obligations. AuditBot checks all of them.</p>
             </div>
 
-            <h3 class="future-markets-header">The free engine.</h3>
-            <p class="future-markets-sub" style="margin-bottom: 24px;">Everything an operator needs to run a compliant manufacturing operation. Given away to eliminate every adoption barrier.</p>
-
-            <div class="check-list">
-                <div class="check-item">
-                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Electronic batch records</strong> &mdash; digital manufacturing workflows with step-by-step operator sign-offs. No paper.</span>
+            <div class="card" style="margin: 48px 0; padding: 40px; border: 2px solid var(--green); background: rgba(45, 106, 79, 0.03);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                    <div class="card-dot" style="margin-bottom: 0; width: 10px; height: 10px;"></div>
+                    <div class="card-heading" style="font-size: 1.5rem;">AuditBot</div>
                 </div>
-                <div class="check-item">
-                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Automatic audit trail</strong> &mdash; every action captured and logged. Audit-ready from day one.</span>
+                <div class="card-purpose" style="font-size: 1.05rem;">The single entry point for every node in the supply chain.</div>
+                <div style="margin: 14px 0;">
+                    <div class="card-pricing">Target: $10,000/client/year</div>
+                    <div class="card-pricing">Consultants charge $5,000+ for one audit</div>
                 </div>
-                <div class="check-item">
-                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Order-to-dispatch</strong> &mdash; full production pipeline with quality gates, accounting gates, and kanban scheduling.</span>
-                </div>
-                <div class="check-item">
-                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Multi-jurisdiction</strong> &mdash; one system across every regulatory framework. Add a new market without rebuilding.</span>
-                </div>
-                <div class="check-item">
-                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
-                    <span><strong>Supplier &amp; inventory</strong> &mdash; qualified supplier management, real-time stock tracking, full traceability.</span>
+                <div class="card-text">Upload your QMS documents. Get a complete compliance health report &mdash; what's passing, what's failing, what's missing. <strong>133 database checks. 55 document checks. 27 document types.</strong> Already built.</div>
+                <div class="card-grid" style="margin: 20px 0 0 0; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                    <div style="padding: 14px 16px; background: var(--bg-alt); border-radius: 6px; font-size: 0.85rem; color: var(--text-mid); border: 1px solid var(--border-light);"><strong style="color: var(--text);">Manufacturers</strong><br>GMP, PIC/S, EU-GMP</div>
+                    <div style="padding: 14px 16px; background: var(--bg-alt); border-radius: 6px; font-size: 0.85rem; color: var(--text-mid); border: 1px solid var(--border-light);"><strong style="color: var(--text);">Labs</strong><br>NATA, method validation</div>
+                    <div style="padding: 14px 16px; background: var(--bg-alt); border-radius: 6px; font-size: 0.85rem; color: var(--text-mid); border: 1px solid var(--border-light);"><strong style="color: var(--text);">Brands</strong><br>TGA sponsor obligations</div>
+                    <div style="padding: 14px 16px; background: var(--bg-alt); border-radius: 6px; font-size: 0.85rem; color: var(--text-mid); border: 1px solid var(--border-light);"><strong style="color: var(--text);">Cultivators</strong><br>GACP, licence conditions</div>
+                    <div style="padding: 14px 16px; background: var(--bg-alt); border-radius: 6px; font-size: 0.85rem; color: var(--text-mid); border: 1px solid var(--border-light);"><strong style="color: var(--text);">Distributors</strong><br>GDP, poisons law, cold chain</div>
+                    <div style="padding: 14px 16px; background: var(--bg-alt); border-radius: 6px; font-size: 0.85rem; color: var(--text-mid); border: 1px solid var(--border-light);"><strong style="color: var(--text);">Pharmacies</strong><br>Drug books, S8 storage, SAS/AP</div>
                 </div>
             </div>
 
-            <h3 class="future-markets-header" style="margin-top: 56px;">The paid toolkit.</h3>
-            <p class="future-markets-sub" style="margin-bottom: 24px;">Services that only work because the network exists underneath. Each one recurring, high-margin, and impossible without the platform.</p>
+            <h3 class="future-markets-header" style="margin-top: 56px;">The toolkit compounds.</h3>
+            <p class="future-markets-sub" style="margin-bottom: 24px;">Once AuditBot seeds a node onto the platform, paid tools compound on top. Each one recurring, high-margin, and impossible without the network underneath.</p>
 
             <div class="card-grid">
-                <div class="card">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                        <div class="card-dot" style="margin-bottom: 0;"></div>
-                        <div class="card-heading">AuditBot</div>
-                    </div>
-                    <div class="card-purpose">Audit-ready every day, not just audit day.</div>
-                    <div class="card-pricing">Est. $1,000&ndash;2,000/month</div>
-                    <div class="card-text"><strong>Without:</strong> Weeks of preparation before every audit. Physical binder assembly. Chasing documents from every department. External consultants at $300+/hr. Findings discovered during the audit, not before.<br><strong>With:</strong> Continuous audit readiness. 115 checks across 10 compliance domains. Gaps identified before the auditor arrives. Consultant costs eliminated. Prep time drops from weeks to zero.</div>
-                </div>
                 <div class="card">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
                         <div class="card-dot" style="margin-bottom: 0;"></div>
@@ -774,6 +761,32 @@
                 </div>
             </div>
 
+            <h3 class="future-markets-header" style="margin-top: 56px;">The compliance engine.</h3>
+            <p class="future-markets-sub" style="margin-bottom: 24px;">A production-ready GMP manufacturing system. Six-month trial for every operator &mdash; long enough to embed their batch records, audit trail, and quality history into the platform. By month three, switching cost is enormous.</p>
+
+            <div class="check-list">
+                <div class="check-item">
+                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
+                    <span><strong>Electronic batch records</strong> &mdash; digital manufacturing workflows with step-by-step operator sign-offs. No paper.</span>
+                </div>
+                <div class="check-item">
+                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
+                    <span><strong>Automatic audit trail</strong> &mdash; every action captured and logged. Audit-ready from day one.</span>
+                </div>
+                <div class="check-item">
+                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
+                    <span><strong>Order-to-dispatch</strong> &mdash; full production pipeline with quality gates, accounting gates, and kanban scheduling.</span>
+                </div>
+                <div class="check-item">
+                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
+                    <span><strong>Multi-jurisdiction</strong> &mdash; one system across every regulatory framework. Add a new market without rebuilding.</span>
+                </div>
+                <div class="check-item">
+                    <svg class="check-mark" viewBox="0 0 20 20"><path d="M 4 10 L 8.5 15 L 16 5"/></svg>
+                    <span><strong>Supplier &amp; inventory</strong> &mdash; qualified supplier management, real-time stock tracking, full traceability.</span>
+                </div>
+            </div>
+
             <div class="split">
                 <div class="split-col">
                     <div class="split-heading" style="font-size: 1.8rem; margin-bottom: 20px;">Without APro</div>
@@ -801,7 +814,7 @@
             </div>
 
             <div class="section-body" style="margin-top: 40px;">
-                <p><strong>The model:</strong> Free removes every adoption barrier. Once an operator's batch records, audit trail, and quality history live on the platform, switching cost is enormous. Paid tools compound on the network &mdash; the more operators join, the more valuable every service becomes.</p>
+                <p><strong>The compounding effect:</strong> AuditBot audits a node and generates revenue from day one. Tools compound on the audit data. The six-month ERP trial creates operational lock-in. Each new node adds connections. Each connection makes the next signup easier. <strong>One product seeds the entire network.</strong></p>
             </div>
         </div>
     </section>
@@ -960,45 +973,45 @@
     <section class="section">
         <div class="section-inner">
             <div class="section-label">The opportunity</div>
-            <h2 class="section-title">Own the network,<br>not the software.</h2>
+            <h2 class="section-title">One product seeds<br>the entire network.</h2>
             <div class="section-body">
-                <p>The manufacturing system is the gateway &mdash; not the product. Give every supply chain node a free, best-in-class compliance engine. Once they're on the platform, <strong>monetise everything around them:</strong> labelling, translation, regulatory intelligence, network connections, and strategic access across every jurisdiction.</p>
+                <p>AuditBot is the single entry vector. Every node type in the supply chain has compliance obligations. AuditBot checks all of them &mdash; generating revenue from day one while seeding nodes onto the platform. <strong>Tools compound. The ERP trial locks them in. The network forms through compliance auditing.</strong></p>
             </div>
 
             <div class="flywheel">
                 <div class="flywheel-step">
                     <div class="flywheel-num">1</div>
                     <div class="flywheel-content">
-                        <div class="flywheel-heading">Free ERP removes every adoption barrier.</div>
-                        <div class="flywheel-text">GMP compliance is mandatory. Giving it away means no cost objection, no procurement cycle, no competitor comparison. Once their batch records, audit trail, and quality history live here, switching cost is enormous.</div>
+                        <div class="flywheel-heading">AuditBot audits any node. Revenue from day one.</div>
+                        <div class="flywheel-text">Manufacturer, lab, cultivator, brand, distributor, pharmacy &mdash; every node type has compliance obligations. AuditBot checks all of them. No database access needed. Upload documents, get a health report. $10K/year per client while consultants charge $5K for a single engagement.</div>
                     </div>
                 </div>
                 <div class="flywheel-step">
                     <div class="flywheel-num">2</div>
                     <div class="flywheel-content">
-                        <div class="flywheel-heading">Brands and labs seed the network.</div>
-                        <div class="flywheel-text">Brands need compliant supply. Labs need to be findable. Both join for immediate value &mdash; find verified partners or get found by them. The most connected, most numerous, lowest-barrier nodes come first.</div>
+                        <div class="flywheel-heading">Tools compound on the audit data.</div>
+                        <div class="flywheel-text">Once a node is on the platform, labelling, translation, regulatory intelligence, and network visibility become natural next purchases. Each tool is a low-resistance add-on &mdash; a line manager can justify it without boardroom approval.</div>
                     </div>
                 </div>
                 <div class="flywheel-step">
                     <div class="flywheel-num">3</div>
                     <div class="flywheel-content">
-                        <div class="flywheel-heading">Each node pulls the next ring in.</div>
-                        <div class="flywheel-text">Brands pull in manufacturers and cultivators. Manufacturers pull in distributors. Distributors connect to pharmacies. Every new node adds connections, and every connection makes the next signup easier.</div>
+                        <div class="flywheel-heading">The ERP trial creates lock-in.</div>
+                        <div class="flywheel-text">A six-month trial gives every operator a production-ready compliance engine. By month three, their batch records, audit trail, and quality history live on the platform. Switching cost is enormous. The trial converts itself.</div>
                     </div>
                 </div>
                 <div class="flywheel-step">
                     <div class="flywheel-num">4</div>
                     <div class="flywheel-content">
-                        <div class="flywheel-heading">Services compound on the network.</div>
-                        <div class="flywheel-text">Jurisdiction-specific labelling. Regulatory document translation. Compliance intelligence that updates when laws change. Each service is recurring, high-margin, and impossible without the network underneath.</div>
+                        <div class="flywheel-heading">Network density crosses the threshold.</div>
+                        <div class="flywheel-text">Each node that joins adds connections. Each connection makes the next signup easier. At ~32 nodes in a market, there's a 70% chance any new entrant finds an existing partner on the platform. The flywheel is self-sustaining.</div>
                     </div>
                 </div>
                 <div class="flywheel-step">
                     <div class="flywheel-num">5</div>
                     <div class="flywheel-content">
                         <div class="flywheel-heading">The data moat deepens.</div>
-                        <div class="flywheel-text">Over time, the platform knows which suppliers serve which markets, what's compliant where, which routes work. That intelligence becomes the most valuable asset in the industry.</div>
+                        <div class="flywheel-text">Every audit, every batch record, every flagged non-conformance feeds the intelligence engine. The platform knows which suppliers serve which markets, what's compliant where, which routes work. A competitor can copy the features. They can't copy the data.</div>
                     </div>
                 </div>
             </div>
@@ -1008,7 +1021,7 @@
     <!-- ═══ QUOTE ═══ -->
     <section class="section quote-section">
         <div class="section-inner">
-            <div class="pull-quote">The ERP is the Trojan horse. The network is the empire.</div>
+            <div class="pull-quote">A consulting killer and an ERP irrelevance engine. It doesn't beat SAP &mdash; it makes SAP irrelevant for a class of companies that were never well-served by horizontal ERP anyway. It doesn't beat consultants &mdash; it automates the 70% of their work that was always repetitive and codifiable, leaving them the 30% that actually requires human judgement.</div>
         </div>
     </section>
 
@@ -1080,15 +1093,15 @@
 
             <div class="stats-panel">
                 <div class="stat">
-                    <div class="stat-number">69</div>
+                    <div class="stat-number">77</div>
                     <div class="stat-label">Database tables</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">11,300+</div>
+                    <div class="stat-number">16,000+</div>
                     <div class="stat-label">Lines of code</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">109</div>
+                    <div class="stat-number">400</div>
                     <div class="stat-label">Automated tests</div>
                 </div>
                 <div class="stat">
@@ -1142,11 +1155,11 @@
             <div class="split">
                 <div class="split-col">
                     <div class="split-heading">Year 1.</div>
-                    <div class="split-text"><strong>200 nodes across 3 jurisdictions.</strong> First recurring revenue from paid tools and node visibility. Brands and labs seed the network, each pulling the next ring of nodes onto the platform. The network compounds.</div>
+                    <div class="split-text"><strong>200 nodes across 3 jurisdictions.</strong> AuditBot generating revenue from day one across all node types. Tools compounding. ERP trials converting. Each audited node pulls its partners onto the platform. The network compounds.</div>
                 </div>
                 <div class="split-col">
                     <div class="split-heading">Year 2.</div>
-                    <div class="split-text"><strong>1,000+ nodes across expanding jurisdictions.</strong> Six revenue layers active. New markets opening &mdash; France, Spain, Poland, Czech Republic, Morocco, Japan, South Korea. The platform knows which suppliers serve which markets, what's compliant where, which routes work. <strong>That intelligence is the product.</strong></div>
+                    <div class="split-text"><strong>1,000+ nodes across expanding jurisdictions.</strong> Target $100K/client basket on 3&ndash;5 year trajectory. New markets opening &mdash; France, Spain, Poland, Czech Republic, Morocco, Japan, South Korea. The platform knows which suppliers serve which markets, what's compliant where, which routes work. <strong>That intelligence is the product.</strong></div>
                 </div>
             </div>
         </div>
